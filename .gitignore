@@ -1,0 +1,22 @@
+# Preview / mockup images (служебные, не нужны в репо)
+yu-nails/preview-*.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+.npm/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#fde6df" />
+<meta name="color-scheme" content="light" />
+<title>yu.nails — админ-панель</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+  // УКАЖИ СВОЙ API URL для реальной работы:
+  // window.YUNAILS_API = 'https://yu-nails-api.onrender.com';
+  // Без этого работает DEMO-режим (моковые данные, изменения в localStorage)
+  window.YUNAILS_DEMO = true;
+</script>
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<div class="admin-app" id="adminApp">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-mark">◐</span>
+      <span class="brand-text">yu.nails</span>
+    </div>
+    <div class="sidebar-tag">админ-панель</div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="dashboard">
+        <span class="ni-ico">📊</span>
+        <span>дашборд</span>
+      </button>
+      <button class="nav-item" data-tab="bookings">
+        <span class="ni-ico">📅</span>
+        <span>записи</span>
+      </button>
+      <button class="nav-item" data-tab="schedule">
+        <span class="ni-ico">🕐</span>
+        <span>расписание</span>
+      </button>
+      <button class="nav-item" data-tab="services">
+        <span class="ni-ico">💅</span>
+        <span>услуги</span>
+      </button>
+      <button class="nav-item" data-tab="blocked">
+        <span class="ni-ico">🚫</span>
+        <span>блокировки</span>
+      </button>
+      <button class="nav-item" data-tab="clients">
+        <span class="ni-ico">👥</span>
+        <span>клиенты</span>
+      </button>
+      <button class="nav-item" data-tab="settings">
+        <span class="ni-ico">⚙️</span>
+        <span>настройки</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="me" id="me">
+        <div class="me-avatar" id="meAvatar">?</div>
+        <div>
+          <div class="me-name" id="meName">загрузка...</div>
+          <div class="me-tag">администратор</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню">☰</button>
+        <div class="topbar-titles">
+          <h1 class="page-title" id="pageTitle">дашборд</h1>
+          <p class="page-sub" id="pageSub">обзор студии</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn btn-secondary btn-sm" id="refreshBtn" type="button">обновить</button>
+        <button class="btn btn-ghost btn-sm" id="closeBtn" type="button">закрыть</button>
+      </div>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content">
+      <!-- DASHBOARD -->
+      <div class="tab-pane active" data-pane="dashboard">
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>📅 сегодня</h3>
+                <p id="todayDate"></p>
+              </div>
+            </div>
+            <div class="booking-list" id="todayList">
+              <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>📅 завтра</h3>
+                <p id="tomorrowDate"></p>
+              </div>
+            </div>
+            <div class="booking-list" id="tomorrowList">
+              <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>🏆 популярные услуги</h3>
+              <p>что чаще всего заказывают</p>
+            </div>
+          </div>
+          <div class="popular-list" id="popularList"></div>
+        </div>
+      </div>
+
+      <!-- BOOKINGS -->
+      <div class="tab-pane" data-pane="bookings">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>📅 все записи</h3>
+              <p>управление бронированиями клиентов</p>
+            </div>
+          </div>
+          <div class="filters" style="padding: 16px 24px 0;">
+            <button class="chip active" data-filter="all" type="button">все</button>
+            <button class="chip" data-filter="pending" type="button">⏳ новые</button>
+            <button class="chip" data-filter="confirmed" type="button">✅ подтверждённые</button>
+            <button class="chip" data-filter="completed" type="button">✓ выполненные</button>
+            <button class="chip" data-filter="cancelled" type="button">✕ отменённые</button>
+          </div>
+          <div class="bookings-list" id="bookingsList">
+            <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCHEDULE -->
+      <div class="tab-pane" data-pane="schedule">
+        <div class="card">
+          <div class="card-head">
+            <h3>расписание работы</h3>
+            <p class="muted">установи часы для каждого дня недели</p>
+          </div>
+          <div class="card-body">
+            <div class="schedule-list" id="scheduleList"></div>
+            <button class="btn-primary mt-24" id="saveSchedule" type="button">сохранить расписание</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="tab-pane" data-pane="services">
+        <div class="card">
+          <div class="card-head">
+            <h3>услуги и цены</h3>
+            <button class="btn-primary small" id="addService" type="button">+ добавить</button>
+          </div>
+          <div class="card-body">
+            <div class="services-list" id="servicesList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCKED -->
+      <div class="tab-pane" data-pane="blocked">
+        <div class="card">
+          <div class="card-head">
+            <h3>заблокированные слоты</h3>
+            <button class="btn-primary small" id="addBlock" type="button">+ заблокировать</button>
+          </div>
+          <div class="card-body">
+            <p class="muted mb-16">слоты, недоступные для записи (отпуск, выходной, ремонт)</p>
+            <div class="blocked-list" id="blockedList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIENTS -->
+      <div class="tab-pane" data-pane="clients">
+        <div class="card">
+          <div class="card-head">
+            <h3>клиенты</h3>
+          </div>
+          <div class="card-body">
+            <div class="clients-list" id="clientsList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="tab-pane" data-pane="settings">
+        <div class="card">
+          <div class="card-head">
+            <h3>настройки</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">рабочие часы по умолчанию (с)</span>
+                <input type="time" id="setStart" />
+              </label>
+              <label class="field">
+                <span class="field-label">рабочие часы по умолчанию (до)</span>
+                <input type="time" id="setEnd" />
+              </label>
+              <label class="field">
+                <span class="field-label">длительность слота (мин)</span>
+                <input type="number" id="setDuration" min="15" step="15" />
+              </label>
+              <label class="field">
+                <span class="field-label">нельзя записаться менее чем за (часов)</span>
+                <input type="number" id="setLead" min="0" step="1" />
+              </label>
+            </div>
+            <button class="btn-primary mt-24" id="saveSettings" type="button">сохранить настройки</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-modal-close type="button" aria-label="Закрыть">×</button>
+    <h3 class="modal-title" id="modalTitle">...</h3>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="admin.js" defer></script>
+</body>
+</html>
