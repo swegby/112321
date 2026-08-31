@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0a0a0c" />
 <meta name="color-scheme" content="dark" />
+<<<<<<< HEAD
+=======
+<meta name="description" content="yu.nails — админ-панель для управления записями, клиентами, расписанием и услугами студии маникюра." />
+<meta property="og:title" content="yu.nails — admin" />
+<meta property="og:description" content="Админ-панель студии маникюра" />
+<meta property="og:type" content="website" />
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 <title>yu.nails — admin</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +68,7 @@ window.YUNAILS_DEMO = true;
   --r-lg: 12px;
   --r-xl: 16px;
 
+<<<<<<< HEAD
   --t-fast: 80ms cubic-bezier(0.4, 0, 0.2, 1);
   --t: 120ms cubic-bezier(0.4, 0, 0.2, 1);
   --t-slow: 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,6 +76,18 @@ window.YUNAILS_DEMO = true;
 }
 
 html { height: 100%; }
+=======
+  --t-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --sidebar-w: 232px;
+  --topbar-h: 57px;
+}
+
+html { height: 100%; scrollbar-gutter: stable; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 body {
   font-family: var(--font-sans);
   background: var(--bg);
@@ -81,6 +101,10 @@ body {
   min-height: 100vh;
   font-variant-numeric: tabular-nums;
 }
+<<<<<<< HEAD
+=======
+body[data-modal-open] { overflow: hidden; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
 input, textarea, select { font-family: inherit; }
 a { color: var(--accent); text-decoration: none; }
@@ -89,10 +113,17 @@ a { color: var(--accent); text-decoration: none; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; }
+<<<<<<< HEAD
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.16); background-clip: padding-box; border: 2px solid transparent; }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 /* Subtle gradient overlay на body для глубины */
+=======
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.16); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: transparent; }
+* { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.08) transparent; }
+
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 body::before {
   content: '';
   position: fixed;
@@ -102,26 +133,39 @@ body::before {
   z-index: 0;
 }
 
+<<<<<<< HEAD
 /* ANIMATIONS */
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
+<<<<<<< HEAD
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 @keyframes pulse-ring {
   0% { box-shadow: 0 0 0 0 var(--accent-glow); }
   70% { box-shadow: 0 0 0 8px rgba(255, 120, 73, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 120, 73, 0); }
+=======
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+<<<<<<< HEAD
 @keyframes spin { to { transform: rotate(360deg); } }
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 @keyframes barGrow {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
 }
+<<<<<<< HEAD
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -133,6 +177,39 @@ body::before {
 
 /* LAYOUT */
 .app { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; position: relative; z-index: 1; }
+=======
+@keyframes pop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* SR-only */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+/* LAYOUT */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 .sidebar {
   border-right: 1px solid var(--border);
@@ -148,6 +225,10 @@ body::before {
   background: rgba(10, 10, 12, 0.6);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
+<<<<<<< HEAD
+=======
+  scrollbar-width: none;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .sidebar::-webkit-scrollbar { width: 0; }
 
@@ -164,6 +245,7 @@ body::before {
   font-style: italic;
   letter-spacing: -0.04em;
   box-shadow: 0 4px 12px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.3);
+<<<<<<< HEAD
   position: relative;
   flex-shrink: 0;
 }
@@ -176,6 +258,10 @@ body::before {
   z-index: -1;
   filter: blur(4px);
   opacity: 0.5;
+=======
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .brand-text { font-size: 14px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
 .brand-text em { color: var(--ink-3); font-style: normal; font-weight: 400; margin-left: 2px; }
@@ -251,14 +337,22 @@ body::before {
 .nav-item .ni-badge.hidden { display: none; }
 
 .me {
+<<<<<<< HEAD
   margin-top: auto;
   padding: 10px 8px;
+=======
+  margin-top: 14px;
+  padding: 10px 8px 4px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   display: flex;
   align-items: center;
   gap: 9px;
   border-top: 1px solid var(--border);
+<<<<<<< HEAD
   margin-top: 14px;
   padding-top: 14px;
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .me-avatar {
   width: 26px; height: 26px;
@@ -272,7 +366,11 @@ body::before {
   background-position: center;
   flex-shrink: 0;
   font-family: var(--font-mono);
+<<<<<<< HEAD
   box-shadow: 0 0 0 2px var(--bg-elevated);
+=======
+  box-shadow: 0 0 0 2px var(--bg);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   position: relative;
 }
 .me-avatar::after {
@@ -282,8 +380,12 @@ body::before {
   width: 8px; height: 8px;
   background: var(--success);
   border-radius: 50%;
+<<<<<<< HEAD
   border: 2px solid var(--bg);
   box-shadow: 0 0 6px var(--success);
+=======
+  box-shadow: 0 0 0 2px var(--bg), 0 0 6px var(--success);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .me-info { min-width: 0; flex: 1; }
 .me-name {
@@ -298,11 +400,27 @@ body::before {
 .me-tag {
   font-size: 10px;
   color: var(--ink-3);
+<<<<<<< HEAD
   display: flex; align-items: center; gap: 4px;
+=======
+  display: flex; align-items: center; gap: 5px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   line-height: 1.3;
   font-family: var(--font-mono);
   margin-top: 1px;
 }
+<<<<<<< HEAD
+=======
+.me-tag::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+  animation: pulse 2.4s infinite;
+  flex-shrink: 0;
+}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 /* MAIN */
 .main { display: flex; flex-direction: column; min-width: 0; position: relative; }
@@ -319,6 +437,10 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 50;
+<<<<<<< HEAD
+=======
+  min-height: var(--topbar-h);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .topbar-left { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
 .topbar-titles { min-width: 0; }
@@ -341,6 +463,7 @@ body::before {
   background: var(--success);
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--success-soft);
+<<<<<<< HEAD
   animation: pulse 2s infinite;
   position: relative;
 }
@@ -352,6 +475,10 @@ body::before {
   background: var(--success);
   opacity: 0.3;
   animation: pulse 2s infinite;
+=======
+  animation: pulse 2.4s infinite;
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .page-sub .clock {
   margin-left: auto;
@@ -361,7 +488,11 @@ body::before {
   letter-spacing: 0.04em;
 }
 
+<<<<<<< HEAD
 .topbar-actions { display: flex; gap: 6px; align-items: center; }
+=======
+.topbar-actions { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 .content {
   flex: 1;
@@ -374,6 +505,10 @@ body::before {
 
 .tab-pane { display: none; }
 .tab-pane.active { display: block; animation: fadeIn .25s var(--t-slow); }
+<<<<<<< HEAD
+=======
+.tab-pane.loading { opacity: 0.5; pointer-events: none; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 /* BUTTONS */
 .btn {
@@ -392,6 +527,10 @@ body::before {
   -webkit-user-select: none;
   position: relative;
 }
+<<<<<<< HEAD
+=======
+.btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .btn-primary {
   background: linear-gradient(180deg, var(--accent-hover) 0%, var(--accent) 100%);
   color: #0a0a0c;
@@ -400,12 +539,16 @@ body::before {
 }
 .btn-primary:hover { box-shadow: 0 4px 14px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.2); transform: translateY(-0.5px); }
 .btn-primary:active { transform: translateY(0) scale(0.98); }
+<<<<<<< HEAD
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .btn-secondary {
   background: var(--surface);
   color: var(--ink);
   border-color: var(--border-strong);
+<<<<<<< HEAD
   box-shadow: 0 0 0 1px transparent;
 }
 .btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-active); }
@@ -417,6 +560,17 @@ body::before {
 .btn-success { background: var(--success); color: #052e16; font-weight: 600; }
 
 .btn-sm { padding: 4px 10px; font-size: 11.5px; }
+=======
+}
+.btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-active); }
+.btn-ghost { background: transparent; color: var(--ink-2); }
+.btn-ghost:hover { background: var(--surface); color: var(--ink); }
+.btn-danger { background: var(--danger); color: #0a0a0c; font-weight: 600; }
+.btn-danger:hover { background: #e54e5c; }
+.btn-success { background: var(--success); color: #052e16; font-weight: 600; }
+.btn-success:hover { background: #3ac970; }
+.btn-sm { padding: 5px 10px; font-size: 11.5px; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 .btn-icon {
   width: 28px; height: 28px;
@@ -430,6 +584,10 @@ body::before {
   flex-shrink: 0;
   border: 1px solid transparent;
   position: relative;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .btn-icon:hover { background: var(--surface); color: var(--ink); border-color: var(--border); }
 .btn-icon:active { transform: scale(0.92); }
@@ -437,6 +595,10 @@ body::before {
 .btn-icon.danger:hover { background: var(--danger-soft); color: var(--danger); border-color: rgba(248, 113, 113, 0.3); }
 .btn-icon.warning:hover { background: var(--warning-soft); color: var(--warning); border-color: rgba(251, 191, 36, 0.3); }
 
+<<<<<<< HEAD
+=======
+.btn-icon.has-tooltip { overflow: visible; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .btn-icon.has-tooltip::after {
   content: attr(data-tip);
   position: absolute;
@@ -471,6 +633,20 @@ body::before {
 }
 .btn-icon.has-tooltip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 .btn-icon.has-tooltip:hover::before { opacity: 1; }
+<<<<<<< HEAD
+=======
+/* flip tooltip on bottom rows */
+.booking-row:nth-last-child(-n+2) .btn-icon.has-tooltip::after,
+.booking-row:nth-last-child(-n+2) .btn-icon.has-tooltip::before {
+  bottom: auto; top: calc(100% + 6px);
+}
+.booking-row:nth-last-child(-n+2) .btn-icon.has-tooltip::before {
+  top: calc(100% + 2px); border-top-color: transparent; border-bottom-color: var(--ink);
+}
+.booking-row:nth-last-child(-n+2) .btn-icon.has-tooltip:hover::after {
+  transform: translateX(-50%) translateY(0);
+}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 /* CHECKBOX */
 .checkbox {
@@ -483,6 +659,10 @@ body::before {
   transition: all var(--t-fast);
   flex-shrink: 0;
   position: relative;
+<<<<<<< HEAD
+=======
+  user-select: none;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .checkbox:hover { border-color: var(--ink-2); }
 .checkbox.checked {
@@ -495,6 +675,7 @@ body::before {
   color: #0a0a0c;
   font-size: 11px;
   font-weight: 700;
+<<<<<<< HEAD
   animation: pop var(--t-spring);
 }
 .checkbox.indeterminate {
@@ -514,6 +695,13 @@ body::before {
 }
 
 /* STATS — с анимацией и дельтами */
+=======
+  line-height: 1;
+  animation: pop var(--t-spring);
+}
+
+/* STATS */
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -528,8 +716,14 @@ body::before {
   background: var(--bg);
   padding: 16px 20px 14px;
   position: relative;
+<<<<<<< HEAD
   transition: background var(--t-fast);
   overflow: hidden;
+=======
+  transition: background var(--t);
+  overflow: hidden;
+  min-width: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .stat:hover { background: var(--bg-elevated); }
 .stat::after {
@@ -549,8 +743,17 @@ body::before {
   letter-spacing: 0.07em;
   font-family: var(--font-mono);
   display: flex; align-items: center; gap: 6px;
+<<<<<<< HEAD
 }
 .stat-icon { font-size: 11px; opacity: 0.5; }
+=======
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.stat-icon { font-size: 11px; opacity: 0.5; flex-shrink: 0; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .stat-value {
   font-size: 28px;
   font-weight: 700;
@@ -560,14 +763,21 @@ body::before {
   font-variant-numeric: tabular-nums;
   margin-bottom: 4px;
   display: flex; align-items: baseline; gap: 3px;
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .stat-value .num { display: inline-block; }
 .stat-value .currency { font-size: 17px; color: var(--ink-3); font-weight: 500; }
 .stat-value.accent { color: var(--accent); }
 .stat-value.accent .currency { color: var(--accent); opacity: 0.7; }
+<<<<<<< HEAD
 .stat-value .num.animating {
   animation: fadeIn 0.3s var(--t-slow);
 }
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .stat-foot {
   display: flex; align-items: center; gap: 6px;
   font-size: 10.5px;
@@ -581,11 +791,20 @@ body::before {
   font-size: 10.5px;
   padding: 1px 5px;
   border-radius: 3px;
+<<<<<<< HEAD
 }
 .delta.up { color: var(--success); background: var(--success-soft); }
 .delta.down { color: var(--danger); background: var(--danger-soft); }
 .delta.flat { color: var(--ink-3); background: rgba(255,255,255,0.04); }
 .stat-spark { height: 32px; margin-top: 4px; margin-bottom: -4px; display: block; }
+=======
+  flex-shrink: 0;
+}
+.delta.up { color: var(--success); background: var(--success-soft); }
+.delta.down { color: var(--danger); background: var(--danger-soft); }
+.delta.flat { color: var(--ink-3); background: transparent; }
+.stat-spark { height: 32px; margin-top: 4px; margin-bottom: -4px; display: block; width: 100%; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
@@ -606,6 +825,10 @@ body::before {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
   pointer-events: none;
+<<<<<<< HEAD
+=======
+  z-index: 1;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .card-head {
   padding: 12px 20px;
@@ -640,12 +863,23 @@ body::before {
   align-items: center;
   margin-bottom: 10px;
   margin-top: 24px;
+<<<<<<< HEAD
 }
 .section-head:first-child { margin-top: 0; }
 .section-head h2 {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: -0.01em;
+=======
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.section-head:first-child { margin-top: 0; }
+.section-head h2 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   color: var(--ink);
   text-transform: uppercase;
   font-family: var(--font-mono);
@@ -657,6 +891,10 @@ body::before {
   background: var(--accent);
   border-radius: 2px;
   box-shadow: 0 0 6px var(--accent-glow);
+<<<<<<< HEAD
+=======
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .section-head .sub { font-size: 11px; color: var(--ink-3); font-family: var(--font-mono); }
 .section-head a { font-size: 11.5px; color: var(--ink-3); transition: color var(--t-fast); }
@@ -708,7 +946,10 @@ body::before {
 }
 .chip.active .chip-count { background: var(--border-active); color: var(--ink); }
 
+<<<<<<< HEAD
 /* DATE PICKER для bookings */
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .date-picker {
   display: inline-flex;
   align-items: center;
@@ -746,7 +987,10 @@ body::before {
   padding: 11px 20px;
   border-bottom: 1px solid var(--border);
   transition: background var(--t-fast);
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   position: relative;
 }
 .booking-row:last-child { border-bottom: none; }
@@ -798,6 +1042,13 @@ body::before {
   color: var(--ink-3);
   line-height: 1.4;
   font-family: var(--font-mono);
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .booking-service .price-inline { color: var(--ink-2); }
 .booking-comment {
@@ -807,6 +1058,13 @@ body::before {
   padding-left: 8px;
   border-left: 1px solid var(--border-strong);
   font-style: italic;
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 
 .booking-status {
@@ -819,6 +1077,10 @@ body::before {
   border-radius: 3px;
   white-space: nowrap;
   border: 1px solid transparent;
+<<<<<<< HEAD
+=======
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .booking-status.pending { background: var(--warning-soft); color: var(--warning); border-color: rgba(251, 191, 36, 0.25); }
 .booking-status.confirmed { background: var(--success-soft); color: var(--success); border-color: rgba(74, 222, 128, 0.25); }
@@ -831,9 +1093,16 @@ body::before {
   font-weight: 600;
   white-space: nowrap;
   color: var(--ink);
+<<<<<<< HEAD
 }
 .booking-price .cur { color: var(--ink-3); margin-left: 1px; font-weight: 400; }
 .booking-actions { display: flex; gap: 2px; }
+=======
+  flex-shrink: 0;
+}
+.booking-price .cur { color: var(--ink-3); margin-left: 1px; font-weight: 400; }
+.booking-actions { display: flex; gap: 2px; flex-shrink: 0; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
 .empty {
   color: var(--ink-3);
@@ -880,12 +1149,16 @@ body::before {
   text-overflow: ellipsis;
   white-space: nowrap;
   display: flex; align-items: center; gap: 8px;
+<<<<<<< HEAD
 }
 .popular-name .delta-inline {
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--success);
   font-weight: 500;
+=======
+  min-width: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .popular-bar-wrap {
   height: 4px;
@@ -908,9 +1181,16 @@ body::before {
   color: var(--ink-2);
   text-align: right;
   font-weight: 600;
+<<<<<<< HEAD
 }
 
 /* SCHEDULE — визуальная сетка */
+=======
+  flex-shrink: 0;
+}
+
+/* SCHEDULE */
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .schedule-list { display: flex; flex-direction: column; }
 .schedule-day {
   display: grid;
@@ -937,6 +1217,10 @@ body::before {
   border-radius: 50%;
   background: var(--success);
   box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+<<<<<<< HEAD
+=======
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .schedule-day.off .weekday-dot { background: var(--ink-4); box-shadow: none; }
 .schedule-day .day-duration {
@@ -961,6 +1245,10 @@ body::before {
   text-align: center;
   letter-spacing: 0;
   color-scheme: dark;
+<<<<<<< HEAD
+=======
+  min-width: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .input-field { text-align: left; font-family: var(--font-sans); }
 .time-input:hover, .input-field:hover { border-color: var(--border-active); }
@@ -998,6 +1286,7 @@ body::before {
 }
 .switch.on { background: var(--accent); box-shadow: inset 0 0 0 1px var(--accent), 0 0 8px var(--accent-glow); }
 .switch.on::after { transform: translateX(12px); background: white; }
+<<<<<<< HEAD
 .switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* SERVICES — с категориями */
@@ -1005,6 +1294,11 @@ body::before {
   border-bottom: 1px solid var(--border);
   padding: 0;
 }
+=======
+
+/* SERVICES */
+.services-group { border-bottom: 1px solid var(--border); }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .services-group:last-child { border-bottom: none; }
 .services-group-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -1016,6 +1310,11 @@ body::before {
   letter-spacing: 0.07em;
   font-weight: 600;
   font-family: var(--font-mono);
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+  gap: 6px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .services-group-head .count { color: var(--ink-4); }
 .service-row {
@@ -1095,7 +1394,10 @@ body::before {
   padding: 11px 20px;
   border-bottom: 1px solid var(--border);
   transition: background var(--t-fast);
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .client-row:hover { background: var(--bg); }
 .client-row:last-child { border-bottom: none; }
@@ -1112,7 +1414,11 @@ body::before {
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
 }
+<<<<<<< HEAD
 .client-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+=======
+.client-name { font-size: 13px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .client-handle { font-size: 11px; color: var(--ink-3); font-family: var(--font-mono); margin-top: 1px; }
 .client-stat { text-align: right; }
 .client-stat-label {
@@ -1138,7 +1444,11 @@ body::before {
 .activity-list { display: flex; flex-direction: column; }
 .activity-row {
   display: flex; align-items: flex-start; gap: 12px;
+<<<<<<< HEAD
   padding: 10px 20px;
+=======
+  padding: 11px 20px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   border-bottom: 1px solid var(--border);
   transition: background var(--t-fast);
   position: relative;
@@ -1160,6 +1470,7 @@ body::before {
 .activity-icon.danger { background: var(--danger-soft); border-color: rgba(248, 113, 113, 0.3); color: var(--danger); }
 .activity-icon.info { background: var(--info-soft); border-color: rgba(96, 165, 250, 0.3); color: var(--info); }
 .activity-body { flex: 1; min-width: 0; }
+<<<<<<< HEAD
 .activity-text {
   font-size: 12.5px;
   color: var(--ink);
@@ -1167,6 +1478,10 @@ body::before {
 }
 .activity-text b { font-weight: 600; }
 .activity-text .muted { color: var(--ink-3); }
+=======
+.activity-text { font-size: 12.5px; color: var(--ink); line-height: 1.5; }
+.activity-text b { font-weight: 600; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .activity-time {
   font-size: 10.5px;
   color: var(--ink-4);
@@ -1249,10 +1564,17 @@ body::before {
 .modal.open .modal-content { transform: scale(1) translateY(0); }
 .modal-close {
   position: absolute; top: 12px; right: 12px;
+<<<<<<< HEAD
   width: 24px; height: 24px;
   background: transparent;
   border-radius: var(--r-sm);
   font-size: 16px;
+=======
+  width: 28px; height: 28px;
+  background: transparent;
+  border-radius: var(--r-sm);
+  font-size: 18px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   display: flex; align-items: center; justify-content: center;
   color: var(--ink-3);
   transition: all var(--t-fast);
@@ -1266,7 +1588,11 @@ body::before {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 16px;
+<<<<<<< HEAD
   padding-right: 32px;
+=======
+  padding-right: 40px;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   letter-spacing: -0.015em;
   display: flex; align-items: center; gap: 8px;
 }
@@ -1277,6 +1603,10 @@ body::before {
   display: flex; align-items: center; justify-content: center;
   color: var(--accent);
   font-size: 12px;
+<<<<<<< HEAD
+=======
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .modal-body { display: flex; flex-direction: column; gap: 12px; }
 .modal-foot {
@@ -1285,6 +1615,19 @@ body::before {
   border-top: 1px solid var(--border);
 }
 
+<<<<<<< HEAD
+=======
+/* CONFIRM MODAL (replaces native confirm()) */
+.confirm-modal { text-align: left; }
+.confirm-modal .confirm-text {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+}
+.confirm-modal .confirm-text strong { color: var(--ink); font-weight: 600; }
+
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 /* TOAST */
 .toast {
   position: fixed;
@@ -1303,9 +1646,16 @@ body::before {
   display: flex; align-items: center; gap: 8px;
   white-space: nowrap;
   font-family: var(--font-sans);
+<<<<<<< HEAD
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 .toast::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); }
+=======
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); flex-shrink: 0; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 .toast.error { background: var(--danger); color: #0a0a0c; }
 .toast.error::before { background: #0a0a0c; box-shadow: none; }
 
@@ -1327,6 +1677,12 @@ body::before {
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
   font-size: 12.5px;
   font-weight: 500;
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+  max-width: calc(100vw - 32px);
+  justify-content: center;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .bulk-bar.show {
   transform: translateX(-50%) translateY(0);
@@ -1342,6 +1698,10 @@ body::before {
   width: 1px;
   height: 16px;
   background: rgba(0,0,0,0.15);
+<<<<<<< HEAD
+=======
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .bulk-bar button {
   background: transparent;
@@ -1352,6 +1712,10 @@ body::before {
   border-radius: var(--r-xs);
   display: inline-flex; align-items: center; gap: 4px;
   transition: background var(--t-fast);
+<<<<<<< HEAD
+=======
+  white-space: nowrap;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 .bulk-bar button:hover { background: rgba(0,0,0,0.08); }
 .bulk-bar button.danger { color: var(--danger); }
@@ -1384,6 +1748,7 @@ body::before {
   background: var(--accent);
   border-radius: 50%;
   box-shadow: 0 0 6px var(--accent);
+<<<<<<< HEAD
   animation: pulse 2s infinite;
 }
 
@@ -1401,6 +1766,10 @@ body::before {
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   pointer-events: none;
+=======
+  animation: pulse 2.4s infinite;
+  flex-shrink: 0;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 
 /* MOBILE */
@@ -1437,7 +1806,11 @@ body::before {
   .sidebar {
     position: fixed;
     top: 0; left: 0; bottom: 0;
+<<<<<<< HEAD
     width: 280px;
+=======
+    width: min(280px, 85vw);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     z-index: 60;
     transform: translateX(-100%);
     transition: transform var(--t-slow);
@@ -1459,6 +1832,10 @@ body::before {
   .card-head h3 { font-size: 12.5px; }
   .two-col { grid-template-columns: 1fr; gap: 12px; }
   .booking-row { grid-template-columns: 18px 50px 1fr; gap: 10px; padding: 10px 14px; }
+<<<<<<< HEAD
+=======
+  .booking-row { cursor: default; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   .booking-status, .booking-price { display: none; }
   .booking-actions { grid-column: 1 / -1; margin-top: 4px; justify-content: flex-end; }
   .booking-name { font-size: 12.5px; }
@@ -1477,14 +1854,46 @@ body::before {
   .demo-banner { bottom: 10px; right: 10px; font-size: 9.5px; }
   .popular-row { grid-template-columns: 20px 1fr 50px; gap: 10px; padding: 10px 14px; }
   .popular-bar-wrap { display: none; }
+<<<<<<< HEAD
   .bulk-bar { left: 12px; right: 12px; transform: translateX(0) translateY(20px); bottom: 16px; }
   .bulk-bar.show { transform: translateX(0) translateY(0); }
+=======
+  .bulk-bar { left: 12px; right: 12px; transform: translateX(0) translateY(20px); bottom: 16px; padding: 8px 10px; gap: 6px; }
+  .bulk-bar.show { transform: translateX(0) translateY(0); }
+  .filters { margin: 10px 0 12px; }
+  .date-picker { margin-left: 0; }
+  .topbar-actions .btn { padding: 5px 10px; }
+  .topbar-actions .btn-ghost { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-value { font-size: 26px; }
+  .content { padding: 12px 12px 80px; }
+  .booking-row { padding: 10px 12px; }
+  .card-head { padding: 10px 12px; }
+  .form-grid { padding: 12px; }
+  .form-actions { padding: 0 12px 12px; }
+}
+
+@media (max-width: 360px) {
+  .topbar { padding: 8px 10px; }
+  .content { padding: 10px 10px 80px; }
+  .me-name { font-size: 11px; }
+}
+
+/* High-contrast / forced-colors support */
+@media (forced-colors: active) {
+  .btn-icon, .checkbox, .switch, .nav-item { border: 1px solid CanvasText; }
+  .stat::after { display: none; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 }
 </style>
 </head>
 <body>
 
 <div class="app" id="app">
+<<<<<<< HEAD
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <span class="brand-mark">y</span>
@@ -1504,10 +1913,32 @@ body::before {
       </button>
       <button class="nav-item" data-tab="clients">
         <span class="ni-ico">○</span>
+=======
+  <aside class="sidebar" id="sidebar" aria-label="Главная навигация">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">y</span>
+      <span class="brand-text">yu.nails<em>/admin</em></span>
+    </div>
+
+    <nav class="nav-group" aria-label="Основные разделы">
+      <div class="nav-group-title">главное</div>
+      <button type="button" class="nav-item active" data-tab="dashboard" aria-current="page">
+        <span class="ni-ico" aria-hidden="true">◇</span>
+        <span class="ni-label">дашборд</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="bookings">
+        <span class="ni-ico" aria-hidden="true">▤</span>
+        <span class="ni-label">записи</span>
+        <span class="ni-badge hidden" id="pendingBadge" aria-label="Новые записи">0</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="clients">
+        <span class="ni-ico" aria-hidden="true">○</span>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <span class="ni-label">клиенты</span>
       </button>
     </nav>
 
+<<<<<<< HEAD
     <nav class="nav-group">
       <div class="nav-group-title">управление</div>
       <button class="nav-item" data-tab="schedule">
@@ -1524,15 +1955,40 @@ body::before {
       </button>
       <button class="nav-item" data-tab="settings">
         <span class="ni-ico">⚙</span>
+=======
+    <nav class="nav-group" aria-label="Управление">
+      <div class="nav-group-title">управление</div>
+      <button type="button" class="nav-item" data-tab="schedule">
+        <span class="ni-ico" aria-hidden="true">◷</span>
+        <span class="ni-label">расписание</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="services">
+        <span class="ni-ico" aria-hidden="true">✦</span>
+        <span class="ni-label">услуги</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="blocked">
+        <span class="ni-ico" aria-hidden="true">⊘</span>
+        <span class="ni-label">блокировки</span>
+      </button>
+      <button type="button" class="nav-item" data-tab="settings">
+        <span class="ni-ico" aria-hidden="true">⚙</span>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <span class="ni-label">настройки</span>
       </button>
     </nav>
 
     <div class="me">
+<<<<<<< HEAD
       <div class="me-avatar" id="meAvatar">?</div>
       <div class="me-info">
         <div class="me-name" id="meName">загрузка</div>
         <div class="me-tag">админ</div>
+=======
+      <div class="me-avatar" id="meAvatar" aria-hidden="true">?</div>
+      <div class="me-info">
+        <div class="me-name" id="meName">загрузка</div>
+        <div class="me-tag"><span aria-hidden="true"></span><span>онлайн</span></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       </div>
     </div>
   </aside>
@@ -1540,6 +1996,7 @@ body::before {
   <main class="main">
     <header class="topbar">
       <div class="topbar-left">
+<<<<<<< HEAD
         <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="меню">☰</button>
         <div class="topbar-titles">
           <h1 class="page-title" id="pageTitle">дашборд</h1>
@@ -1547,10 +2004,20 @@ body::before {
             <span class="live-dot"></span>
             <span id="pageSubText">обзор студии</span>
             <span class="clock" id="clock"></span>
+=======
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">☰</button>
+        <div class="topbar-titles">
+          <h1 class="page-title" id="pageTitle">дашборд</h1>
+          <p class="page-sub" id="pageSub">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span id="pageSubText">обзор студии</span>
+            <span class="clock" id="clock" aria-label="Текущее время"></span>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           </p>
         </div>
       </div>
       <div class="topbar-actions">
+<<<<<<< HEAD
         <button class="btn btn-ghost btn-sm" id="refreshBtn" type="button">↻ обновить</button>
         <button class="btn btn-secondary btn-sm" id="closeBtn" type="button">закрыть</button>
       </div>
@@ -1561,26 +2028,51 @@ body::before {
     <div class="content">
       <div class="tab-pane active" data-pane="dashboard">
         <div class="stats-grid" id="statsGrid"></div>
+=======
+        <button type="button" class="btn btn-ghost btn-sm" id="refreshBtn" aria-label="Обновить">↻ обновить</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="closeBtn" aria-label="Закрыть">закрыть</button>
+      </div>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <div class="content" id="content">
+      <div class="tab-pane active" data-pane="dashboard" role="tabpanel">
+        <div class="stats-grid" id="statsGrid" aria-label="Сводная статистика"></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
         <div class="section-head">
           <h2>сегодня и завтра</h2>
           <a href="#" data-go="bookings">все записи →</a>
         </div>
         <div class="two-col">
+<<<<<<< HEAD
           <div class="card">
+=======
+          <section class="card" aria-label="Записи на сегодня">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
             <div class="card-head">
               <h3>сегодня <span class="count" id="todayDate"></span></h3>
               <p id="todayCount">—</p>
             </div>
             <div class="booking-list" id="todayList"></div>
+<<<<<<< HEAD
           </div>
           <div class="card">
+=======
+          </section>
+          <section class="card" aria-label="Записи на завтра">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
             <div class="card-head">
               <h3>завтра <span class="count" id="tomorrowDate"></span></h3>
               <p id="tomorrowCount">—</p>
             </div>
             <div class="booking-list" id="tomorrowList"></div>
+<<<<<<< HEAD
           </div>
+=======
+          </section>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
 
         <div class="section-head">
@@ -1588,7 +2080,11 @@ body::before {
           <span class="sub">за всё время</span>
         </div>
         <div class="card">
+<<<<<<< HEAD
           <div class="popular-list" id="popularList"></div>
+=======
+          <div class="popular-list" id="popularList" role="list"></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
 
         <div class="section-head">
@@ -1596,11 +2092,19 @@ body::before {
           <span class="sub">последние события</span>
         </div>
         <div class="card">
+<<<<<<< HEAD
           <div class="activity-list" id="activityList"></div>
         </div>
       </div>
 
       <div class="tab-pane" data-pane="bookings">
+=======
+          <div class="activity-list" id="activityList" role="list"></div>
+        </div>
+      </div>
+
+      <div class="tab-pane" data-pane="bookings" role="tabpanel">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <div class="section-head">
           <h2>все записи</h2>
           <span class="sub" id="bookingsCount">—</span>
@@ -1608,6 +2112,7 @@ body::before {
         <div class="card">
           <div style="padding: 0 20px;">
             <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+<<<<<<< HEAD
               <div class="filters" id="bookingsFilters">
                 <button class="chip active" data-filter="all" type="button">все <span class="chip-count" data-count="all">0</span></button>
                 <button class="chip" data-filter="pending" type="button">новые <span class="chip-count" data-count="pending">0</span></button>
@@ -1627,29 +2132,65 @@ body::before {
       </div>
 
       <div class="tab-pane" data-pane="schedule">
+=======
+              <div class="filters" id="bookingsFilters" role="tablist" aria-label="Фильтр по статусу">
+                <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">все <span class="chip-count" data-count="all">0</span></button>
+                <button type="button" class="chip" data-filter="pending" role="tab" aria-selected="false">новые <span class="chip-count" data-count="pending">0</span></button>
+                <button type="button" class="chip" data-filter="confirmed" role="tab" aria-selected="false">подтв. <span class="chip-count" data-count="confirmed">0</span></button>
+                <button type="button" class="chip" data-filter="completed" role="tab" aria-selected="false">выполн. <span class="chip-count" data-count="completed">0</span></button>
+                <button type="button" class="chip" data-filter="cancelled" role="tab" aria-selected="false">отмен. <span class="chip-count" data-count="cancelled">0</span></button>
+              </div>
+              <label class="date-picker">
+                <span>дата</span>
+                <input type="date" id="bookingsDate" aria-label="Фильтр по дате" />
+              </label>
+              <button type="button" class="btn btn-ghost btn-sm" id="clearDate" style="display: none;">сбросить</button>
+            </div>
+          </div>
+          <div class="booking-list" id="bookingsList" role="list"></div>
+        </div>
+      </div>
+
+      <div class="tab-pane" data-pane="schedule" role="tabpanel">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <div class="section-head">
           <h2>расписание работы</h2>
           <span class="sub">по дням недели</span>
         </div>
         <div class="card">
+<<<<<<< HEAD
           <div class="schedule-list" id="scheduleList"></div>
           <div class="form-actions" style="border-top: 1px solid var(--border); padding-top: 14px; margin-top: 0;">
             <button class="btn btn-ghost btn-sm" id="resetSchedule" type="button">сбросить</button>
             <button class="btn btn-primary" id="saveSchedule" type="button">сохранить</button>
+=======
+          <div class="schedule-list" id="scheduleList" role="list"></div>
+          <div class="form-actions" style="border-top: 1px solid var(--border); padding-top: 14px; margin-top: 0;">
+            <button type="button" class="btn btn-ghost btn-sm" id="resetSchedule">сбросить</button>
+            <button type="button" class="btn btn-primary" id="saveSchedule">сохранить</button>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="tab-pane" data-pane="services">
         <div class="section-head">
           <h2>услуги и цены</h2>
           <button class="btn btn-primary btn-sm" id="addService" type="button">+ добавить</button>
+=======
+      <div class="tab-pane" data-pane="services" role="tabpanel">
+        <div class="section-head">
+          <h2>услуги и цены</h2>
+          <button type="button" class="btn btn-primary btn-sm" id="addService">+ добавить</button>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
         <div class="card">
           <div id="servicesContainer"></div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="tab-pane" data-pane="blocked">
         <div class="section-head">
           <h2>заблокированные слоты</h2>
@@ -1661,16 +2202,37 @@ body::before {
       </div>
 
       <div class="tab-pane" data-pane="clients">
+=======
+      <div class="tab-pane" data-pane="blocked" role="tabpanel">
+        <div class="section-head">
+          <h2>заблокированные слоты</h2>
+          <button type="button" class="btn btn-primary btn-sm" id="addBlock">+ заблокировать</button>
+        </div>
+        <div class="card">
+          <div class="blocked-list" id="blockedList" role="list"></div>
+        </div>
+      </div>
+
+      <div class="tab-pane" data-pane="clients" role="tabpanel">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <div class="section-head">
           <h2>клиенты</h2>
           <span class="sub" id="clientsCount">—</span>
         </div>
         <div class="card">
+<<<<<<< HEAD
           <div class="clients-list" id="clientsList"></div>
         </div>
       </div>
 
       <div class="tab-pane" data-pane="settings">
+=======
+          <div class="clients-list" id="clientsList" role="list"></div>
+        </div>
+      </div>
+
+      <div class="tab-pane" data-pane="settings" role="tabpanel">
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <div class="section-head">
           <h2>настройки системы</h2>
         </div>
@@ -1679,6 +2241,7 @@ body::before {
             <h3>параметры записи</h3>
             <p>значения по умолчанию</p>
           </div>
+<<<<<<< HEAD
           <div class="form-grid">
             <label class="field">
               <span class="field-label">рабочие часы с</span>
@@ -1699,6 +2262,28 @@ body::before {
           </div>
           <div class="form-actions">
             <button class="btn btn-primary" id="saveSettings" type="button">сохранить</button>
+=======
+          <form class="form-grid" id="settingsForm" onsubmit="return false;">
+            <label class="field" for="setStart">
+              <span class="field-label">рабочие часы с</span>
+              <input class="field-input" type="time" id="setStart" value="10:00" />
+            </label>
+            <label class="field" for="setEnd">
+              <span class="field-label">рабочие часы до</span>
+              <input class="field-input" type="time" id="setEnd" value="20:00" />
+            </label>
+            <label class="field" for="setDuration">
+              <span class="field-label">длительность слота, мин</span>
+              <input class="field-input" type="number" id="setDuration" min="15" step="15" value="60" inputmode="numeric" />
+            </label>
+            <label class="field" for="setLead">
+              <span class="field-label">lead-time, часов</span>
+              <input class="field-input" type="number" id="setLead" min="0" step="1" value="2" inputmode="numeric" />
+            </label>
+          </form>
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" id="saveSettings">сохранить</button>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           </div>
         </div>
       </div>
@@ -1706,6 +2291,7 @@ body::before {
   </main>
 </div>
 
+<<<<<<< HEAD
 <!-- BULK BAR -->
 <div class="bulk-bar" id="bulkBar">
   <span class="count" id="bulkCount">0</span> выбрано
@@ -1719,6 +2305,20 @@ body::before {
 <div class="modal" id="modal" hidden aria-hidden="true">
   <div class="modal-content">
     <button class="modal-close" data-modal-close type="button" aria-label="Закрыть">×</button>
+=======
+<div class="bulk-bar" id="bulkBar" role="region" aria-label="Массовые действия">
+  <span class="count" id="bulkCount">0</span><span>выбрано</span>
+  <span class="divider" aria-hidden="true"></span>
+  <button type="button" class="success" id="bulkConfirm">✓ подтвердить</button>
+  <button type="button" class="danger" id="bulkCancel">× отменить</button>
+  <span class="divider" aria-hidden="true"></span>
+  <button type="button" id="bulkClear">очистить</button>
+</div>
+
+<div class="modal" id="modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content">
+    <button type="button" class="modal-close" data-modal-close aria-label="Закрыть">×</button>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     <h3 class="modal-title" id="modalTitle">...</h3>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-foot" id="modalFoot"></div>
@@ -1731,10 +2331,39 @@ body::before {
 (() => {
   'use strict';
 
+<<<<<<< HEAD
+=======
+  // ============== UTILS ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const isDemo = !window.YUNAILS_API;
 
+<<<<<<< HEAD
+=======
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  const fmt = n => new Intl.NumberFormat('ru-RU').format(n || 0);
+  const fmtDateShort = d => d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }).replace('.', '');
+  const fmtDateFull = d => d.toLocaleDateString('ru-RU', { weekday: 'long', day: 'numeric', month: 'long' });
+  const statusText = s => ({ pending: 'новая', confirmed: 'подтв.', completed: 'выполнена', cancelled: 'отменена' }[s] || s);
+  const monthShort = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+  const plural = (n, one, few, many) => {
+    n = Math.abs(n) | 0;
+    const mod10 = n % 10, mod100 = n % 100;
+    if (mod10 === 1 && mod100 !== 11) return one;
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return few;
+    return many;
+  };
+  function safeId(s) {
+    const n = parseInt(s, 10);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  // ============== TELEGRAM ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   const tg = window.Telegram?.WebApp;
   let myTgId = 0, myName = 'админ', myPhoto = null;
   if (tg) {
@@ -1750,13 +2379,18 @@ body::before {
   }
   if (isDemo) { myTgId = 123456789; myName = 'Юлия Админ'; }
 
+<<<<<<< HEAD
   // === Real-time clock ===
+=======
+  // ============== CLOCK ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   function updateClock() {
     const c = $('#clock');
     if (!c) return;
     const d = new Date();
     c.textContent = d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
   }
+<<<<<<< HEAD
   setInterval(updateClock, 1000);
   updateClock();
 
@@ -1775,11 +2409,72 @@ body::before {
   }
 
   const STORAGE_KEY = 'yunails_admin_v4';
+=======
+  setInterval(updateClock, 30 * 1000);
+  updateClock();
+
+  // ============== NUMBER ANIMATION ==============
+  const animFrames = new Set();
+  function animateNumber(el, to, duration = 800) {
+    if (!el) return;
+    const target = Number(to) || 0;
+    const from = parseInt(el.textContent.replace(/\D/g, ''), 10) || 0;
+    if (from === target) { el.textContent = target.toLocaleString('ru-RU'); return; }
+    const start = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const frame = (now) => {
+      if (!document.contains(el)) { animFrames.delete(frame); return; }
+      const t = Math.min(1, (now - start) / duration);
+      const v = Math.round(from + (target - from) * ease(t));
+      el.textContent = v.toLocaleString('ru-RU');
+      if (t < 1) animFrames.add(frame);
+      else animFrames.delete(frame);
+      if (t < 1) requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  // ============== SPARKLINE ==============
+  function sparkline(values) {
+    if (!values || !values.length) return '';
+    const max = Math.max(...values, 1);
+    const w = 100, h = 32;
+    const step = w / (values.length - 1 || 1);
+    const points = values.map((v, i) => `${(i * step).toFixed(2)},${(h - (v / max) * (h - 4) - 2).toFixed(2)}`).join(' ');
+    const area = `0,${h} ${points} ${w},${h}`;
+    const lastX = ((values.length - 1) * step).toFixed(2);
+    const lastY = (h - (values[values.length - 1] / max) * (h - 4) - 2).toFixed(2);
+    return `<svg class="stat-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="color: var(--accent)" aria-hidden="true">
+      <defs>
+        <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="currentColor" stop-opacity="0.25" />
+          <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <polygon points="${area}" fill="url(#sparkGrad)" />
+      <polyline points="${points}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+      <circle cx="${lastX}" cy="${lastY}" r="2.5" fill="currentColor" />
+      <circle cx="${lastX}" cy="${lastY}" r="5" fill="currentColor" opacity="0.2" />
+    </svg>`;
+  }
+
+  function deltaHtml(value) {
+    if (value == null || value === 0) return '<span class="delta flat" aria-label="без изменений">—</span>';
+    const up = value > 0;
+    return `<span class="delta ${up ? 'up' : 'down'}" aria-label="${up ? 'рост' : 'падение'} ${Math.abs(value)} процентов">${up ? '↑' : '↓'} ${Math.abs(value)}%</span>`;
+  }
+
+  // ============== DEMO STORAGE (with version fallback) ==============
+  const STORAGE_KEY = 'yunails_admin_v4';
+  const STORAGE_KEY_OLD = 'yunails_admin_v3';
+
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   function initDemoData() {
     const today = new Date();
     const tomorrow = new Date(today.getTime() + 86400000);
     const dayAfter = new Date(today.getTime() + 2 * 86400000);
     const fmt = d => d.toISOString().slice(0, 10);
+<<<<<<< HEAD
     // Generate realistic past bookings for stats
     const past = [];
     const services = ['комбинированный маникюр', 'маникюр с покрытием', 'коррекция покрытия', 'маникюр с покрытием + лёгкий дизайн', 'маникюр с покрытием + сложный дизайн'];
@@ -1797,6 +2492,22 @@ body::before {
         id: 100 + i,
         service: services[idx],
         service_id: 'cover',
+=======
+    const past = [];
+    const services = ['комбинированный маникюр', 'маникюр с покрытием', 'коррекция покрытия', 'маникюр с покрытием + лёгкий дизайн', 'маникюр с покрытием + сложный дизайн'];
+    const prices = [500, 1000, 1200, 1000, 1200];
+    const names = ['Аня Иванова', 'Мария Петрова', 'Ольга Сидорова', 'Екатерина Смирнова', 'Светлана Кузнецова', 'Дарья Новикова', 'Полина Соколова', 'Юлия Морозова', 'Анна Лебедева', 'Виктория Козлова', 'Наталья Соловьёва', 'Татьяна Волкова'];
+    const usernames = ['anya_nails', 'mary_p', 'olya_s', 'kate_n', null, 'dasha_nov', 'polina_s', 'julia_m', null, 'vika_koz', null, null];
+    const statuses = ['confirmed', 'completed', 'completed', 'completed', 'cancelled'];
+
+    for (let i = 1; i <= 25; i++) {
+      const d = new Date(today.getTime() - i * 86400000);
+      const idx = i % services.length;
+      const hour = 10 + (i % 8);
+      const minute = (i % 2) * 30;
+      past.push({
+        id: 100 + i, service: services[idx], service_id: 'cover',
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         design: idx >= 3 ? (idx === 3 ? 'лёгкий' : 'сложный') : '',
         date: fmt(d),
         time: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
@@ -1805,7 +2516,11 @@ body::before {
         tg_id: 100000 + i,
         comment: i % 5 === 0 ? 'хочу миндаль, длина средняя' : (i % 7 === 0 ? 'френч с дизайном' : ''),
         price: prices[idx],
+<<<<<<< HEAD
         status: i < 3 ? 'pending' : statuses[i % statuses.length],
+=======
+        status: statuses[i % statuses.length],
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         created_at: d.toISOString(),
       });
     }
@@ -1817,6 +2532,7 @@ body::before {
         { id: 2, service: 'комбинированный маникюр', service_id: 'combo', design: '', date: fmt(today), time: '17:00', name: 'Мария Петрова', username: 'mary_p', tg_id: 222222, comment: '', price: 500, status: 'confirmed', created_at: today.toISOString() },
         { id: 3, service: 'коррекция покрытия', service_id: 'fix', design: '', date: fmt(today), time: '19:00', name: 'Ольга Сидорова', username: null, tg_id: 333333, comment: '', price: 1200, status: 'confirmed', created_at: today.toISOString() },
         { id: 4, service: 'маникюр с покрытием + сложный дизайн', service_id: 'cover', design: 'сложный', date: fmt(today), time: '20:00', name: 'Полина Соколова', username: 'polina_s', tg_id: 666666, comment: 'хочу что-то с фольгой', price: 1200, status: 'pending', created_at: today.toISOString() },
+<<<<<<< HEAD
         { id: 5, service: 'маникюр с покрытием', service_id: 'cover', design: '', date: fmt(tomorrow), time: '16:00', name: 'Екатерина Смирнова', username: 'kate_n', tg_id: 444444, comment: 'френч с дизайном', price: 1000, status: 'confirmed', created_at: today.toISOString() },
         { id: 6, service: 'комбинированный маникюр', service_id: 'combo', design: '', date: fmt(tomorrow), time: '18:00', name: 'Юлия Морозова', username: 'julia_m', tg_id: 555555, comment: '', price: 500, status: 'confirmed', created_at: today.toISOString() },
         { id: 7, service: 'коррекция покрытия', service_id: 'fix', design: '', date: fmt(tomorrow), time: '19:00', name: 'Татьяна Волкова', username: null, tg_id: 777777, comment: '', price: 1200, status: 'confirmed', created_at: today.toISOString() },
@@ -1828,6 +2544,19 @@ body::before {
         { id: 'fix', name: 'коррекция покрытия', price: 1200, duration: 90, description: 'спил + новое покрытие', is_addon: 0, sort_order: 3, active: 1, category: 'base' },
         { id: 'design-simple', name: 'лёгкий дизайн', price: 0, duration: 15, description: 'фольга, втирка, слайдеры', is_addon: 1, sort_order: 4, active: 1, category: 'addons' },
         { id: 'design-hard', name: 'сложный дизайн', price: 200, duration: 30, description: 'роспись, объём, инкрустация', is_addon: 1, sort_order: 5, active: 1, category: 'addons' },
+=======
+        { id: 5, service: 'маникюр с покрытием', service_id: 'cover', design: '', date: fmt(tomorrow), time: '11:00', name: 'Екатерина Смирнова', username: 'kate_n', tg_id: 444444, comment: 'френч с дизайном', price: 1000, status: 'confirmed', created_at: today.toISOString() },
+        { id: 6, service: 'комбинированный маникюр', service_id: 'combo', design: '', date: fmt(tomorrow), time: '14:00', name: 'Юлия Морозова', username: 'julia_m', tg_id: 555555, comment: '', price: 500, status: 'confirmed', created_at: today.toISOString() },
+        { id: 7, service: 'коррекция покрытия', service_id: 'fix', design: '', date: fmt(tomorrow), time: '16:00', name: 'Татьяна Волкова', username: null, tg_id: 777777, comment: '', price: 1200, status: 'confirmed', created_at: today.toISOString() },
+        { id: 8, service: 'маникюр с покрытием + лёгкий дизайн', service_id: 'cover', design: 'лёгкий', date: fmt(dayAfter), time: '13:00', name: 'Дарья Новикова', username: 'dasha_nov', tg_id: 888888, comment: 'акцент на 2 ногтях', price: 1000, status: 'pending', created_at: today.toISOString() },
+      ],
+      services: [
+        { id: 'combo', name: 'комбинированный маникюр', price: 500, duration: 60, description: 'аппарат + классика', is_addon: 0, sort_order: 1, active: 1 },
+        { id: 'cover', name: 'маникюр с покрытием', price: 1000, duration: 90, description: 'гель-лак под кутикулу', is_addon: 0, sort_order: 2, active: 1 },
+        { id: 'fix', name: 'коррекция покрытия', price: 1200, duration: 90, description: 'спил + новое покрытие', is_addon: 0, sort_order: 3, active: 1 },
+        { id: 'design-simple', name: 'лёгкий дизайн', price: 0, duration: 15, description: 'фольга, втирка, слайдеры', is_addon: 1, sort_order: 4, active: 1 },
+        { id: 'design-hard', name: 'сложный дизайн', price: 200, duration: 30, description: 'роспись, объём, инкрустация', is_addon: 1, sort_order: 5, active: 1 },
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       ],
       schedule: [
         { id: 1, day_of_week: 0, start_time: '10:00', end_time: '20:00', active: 1 },
@@ -1860,13 +2589,32 @@ body::before {
     };
   }
   function loadDemoData() {
+<<<<<<< HEAD
     try { const r = localStorage.getItem(STORAGE_KEY); if (r) return JSON.parse(r); } catch {}
+=======
+    try {
+      let r = localStorage.getItem(STORAGE_KEY);
+      if (r) return JSON.parse(r);
+      r = localStorage.getItem(STORAGE_KEY_OLD);
+      if (r) {
+        try {
+          const old = JSON.parse(r);
+          saveDemoData(old);
+          return old;
+        } catch {}
+      }
+    } catch {}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     return initDemoData();
   }
   function saveDemoData(d) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); } catch {} }
   const db = isDemo ? loadDemoData() : null;
   if (isDemo) saveDemoData(db);
 
+<<<<<<< HEAD
+=======
+  // ============== API ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   function delay(ms = 100) { return new Promise(r => setTimeout(r, ms)); }
   function parseBody(o) { return o?.body ? JSON.parse(o.body) : null; }
   async function api(path, options = {}) {
@@ -1887,6 +2635,10 @@ body::before {
     const monthAgo = new Date(Date.now() - 30 * 86400000).toISOString().slice(0, 10);
     const prevMonthAgo = new Date(Date.now() - 60 * 86400000).toISOString().slice(0, 10);
     const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+<<<<<<< HEAD
+=======
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
     if (path === '/api/admin/check') return { is_admin: true };
     if (path === '/api/admin/stats') {
@@ -1899,6 +2651,7 @@ body::before {
       const popular = {};
       data.bookings.forEach(b => { if (b.status !== 'cancelled') popular[b.service] = (popular[b.service] || 0) + 1; });
       const pop = Object.entries(popular).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([service, count]) => ({ service, count }));
+<<<<<<< HEAD
       // sparkline — last 14 days revenue
       const spark = [];
       for (let i = 13; i >= 0; i--) {
@@ -1915,6 +2668,25 @@ body::before {
       const todayRev = sum(today_b.filter(b => b.status !== 'cancelled'));
       const prevToday = sum(data.bookings.filter(b => b.date === new Date(Date.now() - 86400000).toISOString().slice(0, 10) && b.status !== 'cancelled'));
       const delta = (curr, prev) => prev === 0 ? (curr > 0 ? 100 : 0) : Math.round(((curr - prev) / prev) * 100);
+=======
+      const spark = [];
+      for (let i = 13; i >= 0; i--) {
+        const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+        spark.push(sum(data.bookings.filter(b => b.date === d && ['confirmed', 'completed'].includes(b.status))));
+      }
+      const sumActive = arr => sum(arr.filter(b => ['confirmed', 'completed'].includes(b.status)));
+      const todayRev = sum(today_b.filter(b => b.status !== 'cancelled'));
+      const prevToday = sum(data.bookings.filter(b => b.date === yesterday && b.status !== 'cancelled'));
+      const weekRev = sumActive(week_b);
+      const prevWeekRev = sumActive(prev_week_b);
+      const monthRev = sumActive(month_b);
+      const prevMonthRev = sumActive(prev_month_b);
+      const delta = (curr, prev) => {
+        if (prev === 0) return curr > 0 ? 100 : 0;
+        if (curr === 0 && prev > 0) return -100;
+        return Math.round(((curr - prev) / prev) * 100);
+      };
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
       return {
         total_bookings: data.bookings.length,
@@ -1926,9 +2698,12 @@ body::before {
         revenue_today: todayRev,
         revenue_week: weekRev,
         revenue_month: monthRev,
+<<<<<<< HEAD
         revenue_prev_week: prevWeekRev,
         revenue_prev_month: prevMonthRev,
         revenue_prev_today: prevToday,
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         delta_today: delta(todayRev, prevToday),
         delta_week: delta(weekRev, prevWeekRev),
         delta_month: delta(monthRev, prevMonthRev),
@@ -2005,23 +2780,36 @@ body::before {
       })).sort((a, b) => b.visits - a.visits);
     }
     if (path === '/api/admin/activity') {
+<<<<<<< HEAD
       // build activity from recent bookings
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       const acts = [];
       data.bookings.slice(0, 12).forEach(b => {
         const time = new Date(b.created_at);
         const now = new Date();
         const diffH = Math.floor((now - time) / 3600000);
         const timeAgo = diffH < 1 ? 'только что' : diffH < 24 ? diffH + 'ч назад' : Math.floor(diffH / 24) + 'д назад';
+<<<<<<< HEAD
         if (b.status === 'pending') acts.push({ icon: '✦', type: 'info', text: `новая запись: <b>${b.name}</b> · ${b.service}`, time: timeAgo });
         else if (b.status === 'confirmed') acts.push({ icon: '✓', type: 'success', text: `подтверждено: <b>${b.name}</b> · ${b.date} ${b.time}`, time: timeAgo });
         else if (b.status === 'cancelled') acts.push({ icon: '×', type: 'danger', text: `отменено: <b>${b.name}</b> · ${b.date} ${b.time}`, time: timeAgo });
         else if (b.status === 'completed') acts.push({ icon: '◆', type: 'success', text: `выполнено: <b>${b.name}</b> · ${b.price}₽`, time: timeAgo });
+=======
+        const safeName = escapeHtml(b.name);
+        const safeService = escapeHtml(b.service);
+        if (b.status === 'pending') acts.push({ icon: '✦', type: 'info', text: `новая запись: <b>${safeName}</b> · ${safeService}`, time: timeAgo });
+        else if (b.status === 'confirmed') acts.push({ icon: '✓', type: 'success', text: `подтверждено: <b>${safeName}</b> · ${escapeHtml(b.date)} ${escapeHtml(b.time)}`, time: timeAgo });
+        else if (b.status === 'cancelled') acts.push({ icon: '×', type: 'danger', text: `отменено: <b>${safeName}</b> · ${escapeHtml(b.date)} ${escapeHtml(b.time)}`, time: timeAgo });
+        else if (b.status === 'completed') acts.push({ icon: '◆', type: 'success', text: `выполнено: <b>${safeName}</b> · ${b.price}₽`, time: timeAgo });
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       });
       return acts;
     }
     throw new Error('demo: route not found ' + path);
   }
 
+<<<<<<< HEAD
   function escapeHtml(s) {
     if (s == null) return '';
     return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -2062,6 +2850,9 @@ body::before {
     return `<span class="delta ${up ? 'up' : 'down'}">${up ? '↑' : '↓'} ${Math.abs(value)}%</span>`;
   }
 
+=======
+  // ============== TOAST ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   const toastEl = $('#toast');
   let toastTimer;
   function toast(msg, ok = true) {
@@ -2070,18 +2861,41 @@ body::before {
     toastEl.classList.toggle('error', !ok);
     toastEl.classList.add('show');
     clearTimeout(toastTimer);
+<<<<<<< HEAD
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
   }
 
   const modal = $('#modal');
   function openModal(title, bodyHtml, footHtml = '', icon = '') {
     $('#modalTitle').innerHTML = (icon ? `<span class="modal-title-icon">${icon}</span>` : '') + title;
+=======
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
+  }
+
+  // ============== MODAL (with counter for body overflow) ==============
+  const modal = $('#modal');
+  function lockScroll() {
+    const cur = parseInt(document.body.dataset.modalCount || '0', 10) + 1;
+    document.body.dataset.modalCount = String(cur);
+    document.body.dataset.modalOpen = '';
+  }
+  function unlockScroll() {
+    const cur = Math.max(0, parseInt(document.body.dataset.modalCount || '0', 10) - 1);
+    document.body.dataset.modalCount = String(cur);
+    if (cur === 0) delete document.body.dataset.modalOpen;
+  }
+  let lastFocused = null;
+  function openModal(title, bodyHtml, footHtml = '', icon = '') {
+    lastFocused = document.activeElement;
+    $('#modalTitle').innerHTML = (icon ? `<span class="modal-title-icon" aria-hidden="true">${escapeHtml(icon)}</span>` : '') + escapeHtml(title);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $('#modalBody').innerHTML = bodyHtml;
     $('#modalFoot').innerHTML = footHtml;
     modal.removeAttribute('hidden');
     void modal.offsetWidth;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
+<<<<<<< HEAD
     document.body.style.overflow = 'hidden';
   }
   function closeModal() {
@@ -2095,6 +2909,42 @@ body::before {
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal(); });
 
   // === BULK SELECTION ===
+=======
+    lockScroll();
+    // focus first focusable
+    const first = modal.querySelector('input, select, textarea, button');
+    if (first) setTimeout(() => first.focus(), 50);
+  }
+  function closeModal() {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    unlockScroll();
+    setTimeout(() => { if (!modal.classList.contains('open')) modal.setAttribute('hidden', ''); }, 200);
+    if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+  }
+  $$('[data-modal-close]').forEach(el => el.addEventListener('click', closeModal));
+  modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+  // ============== CUSTOM CONFIRM MODAL ==============
+  function confirmModal({ title = 'подтвердить', message, okText = 'да', cancelText = 'отмена', danger = false } = {}) {
+    return new Promise(resolve => {
+      const okBtn = `<button type="button" class="btn ${danger ? 'btn-danger' : 'btn-primary'}" id="confirmOk">${escapeHtml(okText)}</button>`;
+      const cancelBtn = `<button type="button" class="btn btn-ghost" data-modal-close>${escapeHtml(cancelText)}</button>`;
+      openModal(title, `<div class="confirm-modal"><p class="confirm-text">${message}</p></div>`, cancelBtn + okBtn, danger ? '!' : '?');
+      const finish = (val) => { closeModal(); resolve(val); };
+      $('#confirmOk')?.addEventListener('click', () => finish(true));
+      modal.addEventListener('click', function once(e) {
+        if (e.target === modal || e.target.matches('[data-modal-close]')) {
+          modal.removeEventListener('click', once);
+          finish(false);
+        }
+      });
+    });
+  }
+
+  // ============== BULK SELECTION ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   let selectedIds = new Set();
   function setupBulk() {
     const bar = $('#bulkBar');
@@ -2103,16 +2953,26 @@ body::before {
       $('#bulkCount').textContent = n;
       bar.classList.toggle('show', n > 0);
       $$('.booking-row').forEach(row => {
+<<<<<<< HEAD
         const id = +row.dataset.id;
         row.classList.toggle('selected', selectedIds.has(id));
         const cb = row.querySelector('.checkbox');
         if (cb) cb.classList.toggle('checked', selectedIds.has(id));
+=======
+        const id = safeId(row.dataset.id);
+        if (id == null) return;
+        const isSel = selectedIds.has(id);
+        row.classList.toggle('selected', isSel);
+        const cb = row.querySelector('.checkbox');
+        if (cb) cb.classList.toggle('checked', isSel);
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       });
     };
     document.addEventListener('click', e => {
       const cb = e.target.closest('.booking-row .checkbox');
       if (cb) {
         e.stopPropagation();
+<<<<<<< HEAD
         const id = +cb.closest('.booking-row').dataset.id;
         if (selectedIds.has(id)) selectedIds.delete(id);
         else selectedIds.add(id);
@@ -2126,6 +2986,23 @@ body::before {
         if (selectedIds.has(id)) selectedIds.delete(id);
         else selectedIds.add(id);
         update();
+=======
+        const id = safeId(cb.closest('.booking-row')?.dataset.id);
+        if (id == null) return;
+        if (selectedIds.has(id)) selectedIds.delete(id); else selectedIds.add(id);
+        update();
+        return;
+      }
+      // клик по строке — тоггл только на десктопе, не на интерактивных элементах
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const row = e.target.closest('.booking-row');
+        if (row && !e.target.closest('button, a, input, select, textarea')) {
+          const id = safeId(row.dataset.id);
+          if (id == null) return;
+          if (selectedIds.has(id)) selectedIds.delete(id); else selectedIds.add(id);
+          update();
+        }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       }
     });
     $('#bulkConfirm')?.addEventListener('click', async () => {
@@ -2133,8 +3010,12 @@ body::before {
       try {
         await api('/api/admin/bulk-status', { method: 'POST', body: JSON.stringify({ ids: [...selectedIds], status: 'confirmed' }) });
         toast(`✓ подтверждено: ${selectedIds.size}`);
+<<<<<<< HEAD
         selectedIds.clear();
         update();
+=======
+        selectedIds.clear(); update();
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         await loadBookings();
         if (currentTab === 'dashboard') await loadDashboard();
         updatePendingBadge();
@@ -2142,12 +3023,25 @@ body::before {
     });
     $('#bulkCancel')?.addEventListener('click', async () => {
       if (!selectedIds.size) return;
+<<<<<<< HEAD
       if (!confirm(`отменить ${selectedIds.size} записей? клиентам уйдут уведомления.`)) return;
       try {
         await api('/api/admin/bulk-status', { method: 'POST', body: JSON.stringify({ ids: [...selectedIds], status: 'cancelled' }) });
         toast(`× отменено: ${selectedIds.size}`);
         selectedIds.clear();
         update();
+=======
+      const ok = await confirmModal({
+        title: 'отменить записи',
+        message: `Отменить <strong>${selectedIds.size}</strong> ${plural(selectedIds.size, 'запись', 'записи', 'записей')}? Клиентам уйдут уведомления.`,
+        okText: 'отменить', danger: true,
+      });
+      if (!ok) return;
+      try {
+        await api('/api/admin/bulk-status', { method: 'POST', body: JSON.stringify({ ids: [...selectedIds], status: 'cancelled' }) });
+        toast(`× отменено: ${selectedIds.size}`);
+        selectedIds.clear(); update();
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         await loadBookings();
         if (currentTab === 'dashboard') await loadDashboard();
         updatePendingBadge();
@@ -2156,22 +3050,47 @@ body::before {
     $('#bulkClear')?.addEventListener('click', () => { selectedIds.clear(); update(); });
   }
 
+<<<<<<< HEAD
   async function init() {
     if (isDemo) showDemoBanner();
     if (myPhoto) { $('#meAvatar').style.backgroundImage = `url(${myPhoto})`; $('#meAvatar').textContent = ''; }
     else { $('#meAvatar').textContent = (myName[0] || 'A').toUpperCase(); }
+=======
+  // ============== INIT ==============
+  async function init() {
+    if (isDemo) showDemoBanner();
+    if (myPhoto) {
+      const av = $('#meAvatar');
+      av.style.backgroundImage = `url(${myPhoto})`;
+      av.style.background = `url(${myPhoto}) center/cover`;
+      av.textContent = '';
+    } else {
+      $('#meAvatar').textContent = (myName[0] || 'A').toUpperCase();
+    }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $('#meName').textContent = myName;
 
     $$('.nav-item').forEach(n => n.addEventListener('click', () => {
       switchTab(n.dataset.tab);
       $('.sidebar')?.classList.remove('open');
       $('#sidebarBackdrop')?.classList.remove('open');
+<<<<<<< HEAD
       document.body.style.overflow = '';
     }));
+=======
+      document.activeElement?.blur?.();
+    }));
+    const closeSidebar = () => {
+      $('.sidebar')?.classList.remove('open');
+      $('#sidebarBackdrop')?.classList.remove('open');
+      document.activeElement?.blur?.();
+    };
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $('#mobileMenuBtn')?.addEventListener('click', () => {
       const opening = !$('.sidebar')?.classList.contains('open');
       $('.sidebar')?.classList.toggle('open', opening);
       $('#sidebarBackdrop')?.classList.toggle('open', opening);
+<<<<<<< HEAD
       document.body.style.overflow = opening ? 'hidden' : '';
     });
     $('#sidebarBackdrop')?.addEventListener('click', () => {
@@ -2188,6 +3107,18 @@ body::before {
     });
     $('#refreshBtn').addEventListener('click', () => loadCurrentTab());
     $('#closeBtn').addEventListener('click', () => tg ? tg.close() : window.close());
+=======
+    });
+    $('#sidebarBackdrop')?.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (modal?.classList.contains('open')) { closeModal(); return; }
+        if ($('.sidebar')?.classList.contains('open')) { closeSidebar(); return; }
+      }
+    });
+    $('#refreshBtn').addEventListener('click', () => loadCurrentTab());
+    $('#closeBtn').addEventListener('click', () => { if (tg) tg.close(); else window.close(); });
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
     document.addEventListener('click', e => {
       const a = e.target.closest('[data-go]');
@@ -2195,8 +3126,17 @@ body::before {
     });
 
     $$('#bookingsFilters .chip').forEach(c => c.addEventListener('click', () => {
+<<<<<<< HEAD
       $$('#bookingsFilters .chip').forEach(x => x.classList.remove('active'));
       c.classList.add('active');
+=======
+      $$('#bookingsFilters .chip').forEach(x => {
+        x.classList.remove('active');
+        x.setAttribute('aria-selected', 'false');
+      });
+      c.classList.add('active');
+      c.setAttribute('aria-selected', 'true');
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       currentFilter = c.dataset.filter;
       loadBookings();
     }));
@@ -2215,9 +3155,15 @@ body::before {
 
     document.addEventListener('click', e => {
       const conf = e.target.closest('[data-quick-confirm]');
+<<<<<<< HEAD
       if (conf) { e.stopPropagation(); changeStatus(conf.dataset.quickConfirm, 'confirmed'); }
       const canc = e.target.closest('[data-quick-cancel]');
       if (canc) { e.stopPropagation(); changeStatus(canc.dataset.quickCancel, 'cancelled'); }
+=======
+      if (conf) { e.stopPropagation(); changeStatus(conf.dataset.quickConfirm, 'confirmed'); return; }
+      const canc = e.target.closest('[data-quick-cancel]');
+      if (canc) { e.stopPropagation(); changeStatus(canc.dataset.quickCancel, 'cancelled'); return; }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     });
 
     setupBulk();
@@ -2229,10 +3175,22 @@ body::before {
   function showDemoBanner() {
     const banner = document.createElement('div');
     banner.className = 'demo-banner';
+<<<<<<< HEAD
     banner.textContent = 'demo · reset';
     banner.onclick = () => {
       if (confirm('сбросить демо-данные?')) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
     };
+=======
+    banner.setAttribute('role', 'button');
+    banner.tabIndex = 0;
+    banner.textContent = 'demo · reset';
+    const reset = async () => {
+      const ok = await confirmModal({ title: 'сбросить демо-данные?', message: 'Все локальные изменения будут потеряны. Демо-данные восстановятся из шаблона.', okText: 'сбросить', danger: true });
+      if (ok) { localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(STORAGE_KEY_OLD); location.reload(); }
+    };
+    banner.addEventListener('click', reset);
+    banner.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reset(); } });
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     document.body.appendChild(banner);
   }
 
@@ -2247,9 +3205,17 @@ body::before {
     } catch {}
   }
 
+<<<<<<< HEAD
   let currentTab = 'dashboard';
   let currentFilter = 'all';
   let currentDate = '';
+=======
+  // ============== TAB SWITCH ==============
+  let currentTab = 'dashboard';
+  let currentFilter = 'all';
+  let currentDate = '';
+  let isLoading = false;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   const TITLES = {
     dashboard: ['дашборд', 'обзор студии'],
     bookings: ['записи', 'все записи клиентов'],
@@ -2261,7 +3227,16 @@ body::before {
   };
   async function switchTab(tab) {
     currentTab = tab;
+<<<<<<< HEAD
     $$('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.tab === tab));
+=======
+    $$('.nav-item').forEach(n => {
+      const active = n.dataset.tab === tab;
+      n.classList.toggle('active', active);
+      if (active) n.setAttribute('aria-current', 'page');
+      else n.removeAttribute('aria-current');
+    });
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $$('.tab-pane').forEach(p => p.classList.toggle('active', p.dataset.pane === tab));
     const [t, s] = TITLES[tab] || [tab, ''];
     $('#pageTitle').textContent = t;
@@ -2271,12 +3246,29 @@ body::before {
     await loadCurrentTab();
   }
   async function loadCurrentTab() {
+<<<<<<< HEAD
+=======
+    if (isLoading) return;
+    isLoading = true;
+    const pane = $(`.tab-pane[data-pane="${currentTab}"]`);
+    pane?.classList.add('loading');
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     try {
       const map = { dashboard: loadDashboard, bookings: loadBookings, schedule: loadSchedule, services: loadServices, blocked: loadBlocked, clients: loadClients, settings: loadSettings };
       await map[currentTab]();
     } catch (e) { console.error(e); toast(e.message, false); }
+<<<<<<< HEAD
   }
 
+=======
+    finally {
+      pane?.classList.remove('loading');
+      isLoading = false;
+    }
+  }
+
+  // ============== DASHBOARD ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   async function loadDashboard() {
     const s = await api('/api/admin/stats');
     const stats = [
@@ -2289,6 +3281,7 @@ body::before {
       { label: 'предстоящих', value: s.upcoming, sub: 'активных' },
       { label: 'клиентов', value: s.clients_total, sub: 'уникальных' },
     ];
+<<<<<<< HEAD
     $('#statsGrid').innerHTML = stats.map((st, i) => `
       <div class="stat">
         <div class="stat-head">
@@ -2309,6 +3302,24 @@ body::before {
         const target = +el.dataset.target;
         animateNumber(el, 0, target, 800 + Math.random() * 200);
       });
+=======
+    $('#statsGrid').innerHTML = stats.map(st => `
+      <div class="stat">
+        <div class="stat-head">
+          <span class="stat-label">${escapeHtml(st.label)}</span>
+          <span class="stat-icon" aria-hidden="true">${st.accent ? '◆' : '·'}</span>
+        </div>
+        <div class="stat-value${st.accent ? ' accent' : ''}">
+          <span class="num" data-target="${st.value || 0}">0</span>${st.currency ? `<span class="currency">${escapeHtml(st.currency)}</span>` : ''}
+        </div>
+        ${st.spark && st.sparkVals ? sparkline(st.sparkVals) : ''}
+        <div class="stat-foot">${st.delta !== undefined ? deltaHtml(st.delta) : ''}<span>${escapeHtml(st.sub)}</span></div>
+      </div>
+    `).join('');
+
+    requestAnimationFrame(() => {
+      $$('.stat-value .num').forEach(el => animateNumber(el, +el.dataset.target || 0, 800 + Math.random() * 200));
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     });
 
     const today = new Date();
@@ -2328,30 +3339,49 @@ body::before {
     const maxCount = Math.max(1, ...s.popular_services.map(p => p.count));
     $('#popularList').innerHTML = s.popular_services.length
       ? s.popular_services.map((p, i) => `
+<<<<<<< HEAD
         <div class="popular-row">
           <span class="popular-rank">${String(i + 1).padStart(2, '0')}</span>
           <span class="popular-name">${escapeHtml(p.service)}</span>
           <div class="popular-bar-wrap"><div class="popular-bar" style="width: ${(p.count / maxCount) * 100}%"></div></div>
+=======
+        <div class="popular-row" role="listitem">
+          <span class="popular-rank">${String(i + 1).padStart(2, '0')}</span>
+          <span class="popular-name">${escapeHtml(p.service)}</span>
+          <div class="popular-bar-wrap" aria-hidden="true"><div class="popular-bar" style="width: ${(p.count / maxCount) * 100}%"></div></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           <span class="popular-count">${p.count}×</span>
         </div>`).join('')
       : emptyState('∅', 'Нет данных', 'Пока никто не записывался');
 
+<<<<<<< HEAD
     // activity feed
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     try {
       const acts = await api('/api/admin/activity');
       $('#activityList').innerHTML = acts.length
         ? acts.map(a => `
+<<<<<<< HEAD
           <div class="activity-row">
             <div class="activity-icon ${a.type}">${a.icon}</div>
             <div class="activity-body">
               <div class="activity-text">${a.text}</div>
               <div class="activity-time">${a.time}</div>
+=======
+          <div class="activity-row" role="listitem">
+            <div class="activity-icon ${escapeHtml(a.type)}" aria-hidden="true">${escapeHtml(a.icon)}</div>
+            <div class="activity-body">
+              <div class="activity-text">${a.text}</div>
+              <div class="activity-time">${escapeHtml(a.time)}</div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
             </div>
           </div>`).join('')
         : emptyState('◷', 'Тишина', 'Последних событий нет');
     } catch {}
   }
 
+<<<<<<< HEAD
   function plural(n, one, few, many) {
     const mod10 = n % 10, mod100 = n % 100;
     if (mod10 === 1 && mod100 !== 11) return one;
@@ -2364,6 +3394,13 @@ body::before {
       <div class="empty-icon">${icon}</div>
       <div class="empty-title">${title}</div>
       <div>${sub}</div>
+=======
+  function emptyState(icon, title, sub) {
+    return `<div class="empty">
+      <div class="empty-icon" aria-hidden="true">${escapeHtml(icon)}</div>
+      <div class="empty-title">${escapeHtml(title)}</div>
+      <div>${escapeHtml(sub)}</div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     </div>`;
   }
 
@@ -2371,6 +3408,7 @@ body::before {
     return arr.map(b => {
       const d = new Date(b.date);
       const checked = selectedIds.has(b.id) ? 'checked' : '';
+<<<<<<< HEAD
       return `<div class="booking-row ${checked ? 'selected' : ''}" data-id="${b.id}">
         <div class="checkbox ${checked}"></div>
         <div class="booking-time">${b.time}<small>${fmtDateShort(d)}</small></div>
@@ -2381,13 +3419,31 @@ body::before {
             <span class="booking-status ${b.status}">${statusText(b.status)}</span>
           </div>
           <div class="booking-service">${escapeHtml(b.service)}${b.design ? ' + ' + b.design : ''}<span class="price-inline"> · ${b.price}₽</span></div>
+=======
+      return `<div class="booking-row ${checked ? 'selected' : ''}" data-id="${b.id}" role="listitem" tabindex="0" aria-label="${escapeHtml(b.name)}, ${escapeHtml(b.service)}, ${escapeHtml(b.time)}">
+        <div class="checkbox ${checked}" role="checkbox" aria-checked="${checked ? 'true' : 'false'}" aria-label="выбрать"></div>
+        <div class="booking-time">${escapeHtml(b.time)}<small>${escapeHtml(fmtDateShort(d))}</small></div>
+        <div class="booking-info">
+          <div class="booking-name">
+            ${escapeHtml(b.name)}
+            ${b.username ? `<span class="booking-username">@${escapeHtml(b.username)}</span>` : ''}
+            <span class="booking-status ${escapeHtml(b.status)}">${statusText(b.status)}</span>
+          </div>
+          <div class="booking-service">${escapeHtml(b.service)}${b.design ? ' + ' + escapeHtml(b.design) : ''}<span class="price-inline"> · ${b.price}₽</span></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           ${b.comment ? `<div class="booking-comment">${escapeHtml(b.comment)}</div>` : ''}
         </div>
         <div class="booking-price">${compact ? '' : b.price + '<span class="cur">₽</span>'}</div>
         <div class="booking-actions">
+<<<<<<< HEAD
           ${b.status === 'pending' ? `<button class="btn-icon success has-tooltip" data-tip="подтвердить" data-quick-confirm="${b.id}">✓</button>` : ''}
           ${b.status !== 'cancelled' ? `<button class="btn-icon danger has-tooltip" data-tip="отменить" data-quick-cancel="${b.id}">×</button>` : ''}
           ${compact ? '' : `<a class="btn-icon has-tooltip" data-tip="написать" href="tg://user?id=${b.tg_id}">→</a>`}
+=======
+          ${b.status === 'pending' ? `<button type="button" class="btn-icon success has-tooltip" data-tip="подтвердить" data-quick-confirm="${b.id}" aria-label="подтвердить">✓</button>` : ''}
+          ${b.status !== 'cancelled' ? `<button type="button" class="btn-icon danger has-tooltip" data-tip="отменить" data-quick-cancel="${b.id}" aria-label="отменить">×</button>` : ''}
+          ${compact ? '' : `<a class="btn-icon has-tooltip" data-tip="написать в Telegram" href="tg://user?id=${b.tg_id}" aria-label="написать клиенту">→</a>`}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
       </div>`;
     }).join('');
@@ -2419,6 +3475,7 @@ body::before {
     $('#bookingsList').innerHTML = arr.map(b => {
       const d = new Date(b.date);
       const checked = selectedIds.has(b.id) ? 'checked' : '';
+<<<<<<< HEAD
       return `<div class="booking-row ${checked ? 'selected' : ''}" data-id="${b.id}">
         <div class="checkbox ${checked}"></div>
         <div class="booking-time">${b.time}<small>${fmtDateShort(d)}</small></div>
@@ -2429,13 +3486,31 @@ body::before {
             <span class="booking-status ${b.status}">${statusText(b.status)}</span>
           </div>
           <div class="booking-service">${escapeHtml(b.service)}${b.design ? ' + ' + b.design : ''}<span class="price-inline"> · ${b.price}₽</span></div>
+=======
+      return `<div class="booking-row ${checked ? 'selected' : ''}" data-id="${b.id}" role="listitem" tabindex="0" aria-label="${escapeHtml(b.name)}, ${escapeHtml(b.service)}, ${escapeHtml(b.time)}">
+        <div class="checkbox ${checked}" role="checkbox" aria-checked="${checked ? 'true' : 'false'}" aria-label="выбрать"></div>
+        <div class="booking-time">${escapeHtml(b.time)}<small>${escapeHtml(fmtDateShort(d))}</small></div>
+        <div class="booking-info">
+          <div class="booking-name">
+            ${escapeHtml(b.name)}
+            ${b.username ? `<span class="booking-username">@${escapeHtml(b.username)}</span>` : ''}
+            <span class="booking-status ${escapeHtml(b.status)}">${statusText(b.status)}</span>
+          </div>
+          <div class="booking-service">${escapeHtml(b.service)}${b.design ? ' + ' + escapeHtml(b.design) : ''}<span class="price-inline"> · ${b.price}₽</span></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
           ${b.comment ? `<div class="booking-comment">${escapeHtml(b.comment)}</div>` : ''}
         </div>
         <div class="booking-price">${b.price}<span class="cur">₽</span></div>
         <div class="booking-actions">
+<<<<<<< HEAD
           ${b.status === 'pending' ? `<button class="btn-icon success has-tooltip" data-tip="подтвердить" data-confirm="${b.id}">✓</button>` : ''}
           ${b.status !== 'cancelled' ? `<button class="btn-icon danger has-tooltip" data-tip="отменить" data-cancel="${b.id}">×</button>` : ''}
           <a class="btn-icon has-tooltip" data-tip="написать" href="tg://user?id=${b.tg_id}">→</a>
+=======
+          ${b.status === 'pending' ? `<button type="button" class="btn-icon success has-tooltip" data-tip="подтвердить" data-confirm="${b.id}" aria-label="подтвердить">✓</button>` : ''}
+          ${b.status !== 'cancelled' ? `<button type="button" class="btn-icon danger has-tooltip" data-tip="отменить" data-cancel="${b.id}" aria-label="отменить">×</button>` : ''}
+          <a class="btn-icon has-tooltip" data-tip="написать в Telegram" href="tg://user?id=${b.tg_id}" aria-label="написать клиенту">→</a>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
       </div>`;
     }).join('');
@@ -2445,7 +3520,18 @@ body::before {
   }
 
   async function changeStatus(id, status) {
+<<<<<<< HEAD
     if (status === 'cancelled' && !confirm('отменить запись? клиенту уйдёт уведомление.')) return;
+=======
+    if (status === 'cancelled') {
+      const ok = await confirmModal({
+        title: 'отменить запись',
+        message: 'Клиенту уйдёт уведомление об отмене. Продолжить?',
+        okText: 'отменить', danger: true,
+      });
+      if (!ok) return;
+    }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     try {
       await api(`/api/admin/bookings/${id}/status`, { method: 'POST', body: JSON.stringify({ status }) });
       toast(status === 'cancelled' ? '× запись отменена' : '✓ подтверждено');
@@ -2457,7 +3543,18 @@ body::before {
     } catch (e) { toast(e.message, false); }
   }
 
+<<<<<<< HEAD
   const DAY_NAMES = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+=======
+  // ============== SCHEDULE ==============
+  const DAY_NAMES = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+  function durationMin(start, end) {
+    if (!start || !end) return 0;
+    const [sh, sm] = start.split(':').map(Number);
+    const [eh, em] = end.split(':').map(Number);
+    return Math.max(0, Math.round(((eh * 60 + em) - (sh * 60 + sm)) / 60 * 10) / 10);
+  }
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   async function loadSchedule() {
     const arr = await api('/api/admin/schedule');
     const data = DAY_NAMES.map((name, i) => {
@@ -2466,6 +3563,7 @@ body::before {
     });
     $('#scheduleList').innerHTML = data.map(s => {
       const dur = s.active ? durationMin(s.start_time, s.end_time) : 0;
+<<<<<<< HEAD
       return `<div class="schedule-day ${s.active ? '' : 'off'}" data-day="${s.dow}">
         <span class="schedule-day-name">
           <span class="weekday-dot"></span>${s.name}
@@ -2474,6 +3572,19 @@ body::before {
         <input type="time" value="${s.start_time}" data-field="start" ${s.active ? '' : 'disabled'} />
         <input type="time" value="${s.end_time}" data-field="end" ${s.active ? '' : 'disabled'} />
         <div class="switch ${s.active ? 'on' : ''}" data-field="active" role="switch" tabindex="0" aria-checked="${s.active}"></div>
+=======
+      const dowId = `sched-${s.dow}`;
+      return `<div class="schedule-day ${s.active ? '' : 'off'}" data-day="${s.dow}">
+        <span class="schedule-day-name">
+          <span class="weekday-dot" aria-hidden="true"></span>${escapeHtml(s.name)}
+          <span class="day-duration">${s.active ? dur + 'ч' : 'выходной'}</span>
+        </span>
+        <label class="sr-only" for="${dowId}-start">Начало работы ${escapeHtml(s.name)}</label>
+        <input id="${dowId}-start" type="time" value="${escapeHtml(s.start_time)}" data-field="start" ${s.active ? '' : 'disabled'} />
+        <label class="sr-only" for="${dowId}-end">Конец работы ${escapeHtml(s.name)}</label>
+        <input id="${dowId}-end" type="time" value="${escapeHtml(s.end_time)}" data-field="end" ${s.active ? '' : 'disabled'} />
+        <div class="switch ${s.active ? 'on' : ''}" data-field="active" role="switch" tabindex="0" aria-checked="${s.active}" aria-label="рабочий день"></div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       </div>`;
     }).join('');
 
@@ -2481,29 +3592,42 @@ body::before {
       const sw = row.querySelector('[data-field="active"]');
       const si = row.querySelector('[data-field="start"]');
       const ei = row.querySelector('[data-field="end"]');
+<<<<<<< HEAD
+=======
+      const durEl = row.querySelector('.day-duration');
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       const toggle = () => {
         const on = !sw.classList.contains('on');
         sw.classList.toggle('on', on);
         sw.setAttribute('aria-checked', on);
         row.classList.toggle('off', !on);
         si.disabled = !on; ei.disabled = !on;
+<<<<<<< HEAD
         const durEl = row.querySelector('.day-duration');
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         if (durEl) durEl.textContent = on ? durationMin(si.value, ei.value) + 'ч' : 'выходной';
       };
       sw.addEventListener('click', toggle);
       sw.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
       [si, ei].forEach(inp => inp.addEventListener('change', () => {
+<<<<<<< HEAD
         const durEl = row.querySelector('.day-duration');
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         if (durEl) durEl.textContent = durationMin(si.value, ei.value) + 'ч';
       }));
     });
   }
+<<<<<<< HEAD
   function durationMin(start, end) {
     if (!start || !end) return 0;
     const [sh, sm] = start.split(':').map(Number);
     const [eh, em] = end.split(':').map(Number);
     return Math.max(0, Math.round(((eh * 60 + em) - (sh * 60 + sm)) / 60 * 10) / 10);
   }
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   $('#saveSchedule')?.addEventListener('click', async () => {
     const items = DAY_NAMES.map((_, i) => {
       const row = $(`.schedule-day[data-day="${i}"]`);
@@ -2519,18 +3643,26 @@ body::before {
   });
   $('#resetSchedule')?.addEventListener('click', () => loadSchedule());
 
+<<<<<<< HEAD
+=======
+  // ============== SERVICES ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   let servicesCache = [];
   async function loadServices() {
     servicesCache = await api('/api/admin/services');
     const groups = { base: { title: 'базовые услуги', items: [] }, addons: { title: 'дополнения', items: [] } };
     servicesCache.forEach(s => {
       const cat = s.is_addon ? 'addons' : 'base';
+<<<<<<< HEAD
       if (!groups[cat]) groups[cat] = { title: cat, items: [] };
+=======
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       groups[cat].items.push(s);
     });
     const html = Object.entries(groups).filter(([_, g]) => g.items.length).map(([key, g]) => `
       <div class="services-group">
         <div class="services-group-head">
+<<<<<<< HEAD
           <span>${g.title}</span>
           <span class="count">${g.items.length} ${plural(g.items.length, 'услуга', 'услуги', 'услуг')}</span>
         </div>
@@ -2545,6 +3677,32 @@ body::before {
           </select>
           <button class="btn-icon danger has-tooltip" data-tip="удалить" data-del="${s.id}">×</button>
         </div>`).join('')}
+=======
+          <span>${escapeHtml(g.title)}</span>
+          <span class="count">${g.items.length} ${plural(g.items.length, 'услуга', 'услуги', 'услуг')}</span>
+        </div>
+        ${g.items.map(s => {
+          const nameId = `svc-name-${s.id}`;
+          const priceId = `svc-price-${s.id}`;
+          const durId = `svc-dur-${s.id}`;
+          const typeId = `svc-type-${s.id}`;
+          return `<div class="service-row" data-id="${escapeHtml(s.id)}" role="listitem">
+            <span class="service-id ${s.is_addon ? 'addon' : ''}">${escapeHtml(s.id)}</span>
+            <label class="sr-only" for="${nameId}">Название</label>
+            <input id="${nameId}" class="input-field" type="text" data-f="name" value="${escapeHtml(s.name)}" placeholder="название" />
+            <label class="sr-only" for="${priceId}">Цена</label>
+            <input id="${priceId}" class="input-field numeric" type="number" data-f="price" value="${s.price}" min="0" inputmode="numeric" />
+            <label class="sr-only" for="${durId}">Длительность</label>
+            <input id="${durId}" class="input-field numeric" type="number" data-f="duration" value="${s.duration}" min="5" step="5" inputmode="numeric" />
+            <label class="sr-only" for="${typeId}">Тип услуги</label>
+            <select id="${typeId}" class="input-field" data-f="is_addon">
+              <option value="0" ${!s.is_addon ? 'selected' : ''}>база</option>
+              <option value="1" ${s.is_addon ? 'selected' : ''}>доп.</option>
+            </select>
+            <button type="button" class="btn-icon danger has-tooltip" data-tip="удалить" data-del="${escapeHtml(s.id)}" aria-label="удалить услугу">×</button>
+          </div>`;
+        }).join('')}
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       </div>
     `).join('');
     $('#servicesContainer').innerHTML = html;
@@ -2562,13 +3720,20 @@ body::before {
     catch (e) { toast(e.message, false); }
   }
   async function deleteService(id) {
+<<<<<<< HEAD
     if (!confirm('удалить «' + (servicesCache.find(s => s.id === id)?.name || id) + '»?')) return;
+=======
+    const name = servicesCache.find(s => s.id === id)?.name || id;
+    const ok = await confirmModal({ title: 'удалить услугу', message: `Удалить «<strong>${escapeHtml(name)}</strong>»? Действие нельзя отменить.`, okText: 'удалить', danger: true });
+    if (!ok) return;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     try { await api(`/api/admin/services/${id}`, { method: 'DELETE' }); toast('✓ удалено'); loadServices(); }
     catch (e) { toast(e.message, false); }
   }
   $('#addService')?.addEventListener('click', () => {
     const newId = 'svc_' + Date.now().toString(36);
     openModal('новая услуга', `
+<<<<<<< HEAD
       <label class="field"><span class="field-label">id</span>
         <input class="field-input" id="ns-id" value="${newId}" />
         <span class="field-hint">латиницей, не меняй потом</span>
@@ -2585,17 +3750,48 @@ body::before {
         </label>
       </div>
       <label class="field"><span class="field-label">тип</span>
+=======
+      <label class="field" for="ns-id">
+        <span class="field-label">id</span>
+        <input class="field-input" id="ns-id" value="${newId}" />
+        <span class="field-hint">латиницей, не меняй потом без необходимости</span>
+      </label>
+      <label class="field" for="ns-name">
+        <span class="field-label">название</span>
+        <input class="field-input" id="ns-name" placeholder="премиум дизайн" />
+      </label>
+      <div class="form-grid" style="padding:0">
+        <label class="field" for="ns-price">
+          <span class="field-label">цена, ₽</span>
+          <input class="field-input" id="ns-price" type="number" value="0" min="0" inputmode="numeric" />
+        </label>
+        <label class="field" for="ns-duration">
+          <span class="field-label">длительность, мин</span>
+          <input class="field-input" id="ns-duration" type="number" value="60" min="5" step="5" inputmode="numeric" />
+        </label>
+      </div>
+      <label class="field" for="ns-type">
+        <span class="field-label">тип</span>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         <select class="field-select" id="ns-type">
           <option value="0">базовая услуга</option>
           <option value="1">дополнение</option>
         </select>
       </label>
+<<<<<<< HEAD
     `, `<button class="btn btn-ghost" data-modal-close>отмена</button><button class="btn btn-primary" id="ns-save">создать</button>`, '+');
+=======
+    `, `<button type="button" class="btn btn-ghost" data-modal-close>отмена</button><button type="button" class="btn btn-primary" id="ns-save">создать</button>`, '+');
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $('#ns-save')?.addEventListener('click', async () => {
       const data = {
         id: $('#ns-id').value.trim(), name: $('#ns-name').value.trim(),
         price: +$('#ns-price').value, duration: +$('#ns-duration').value,
+<<<<<<< HEAD
         is_addon: +$('#ns-type').value, sort_order: servicesCache.length + 1, active: 1, category: +$('#ns-type').value ? 'addons' : 'base',
+=======
+        is_addon: +$('#ns-type').value, sort_order: servicesCache.length + 1, active: 1,
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       };
       if (!data.id || !data.name) { toast('заполни id и название', false); return; }
       try { await api('/api/admin/services', { method: 'POST', body: JSON.stringify(data) }); toast('✓ создано'); closeModal(); loadServices(); }
@@ -2603,11 +3799,16 @@ body::before {
     });
   });
 
+<<<<<<< HEAD
+=======
+  // ============== BLOCKED ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   async function loadBlocked() {
     const arr = await api('/api/admin/blocked-slots');
     if (!arr.length) { $('#blockedList').innerHTML = emptyState('⊘', 'Нет блокировок', 'Все слоты доступны'); return; }
     $('#blockedList').innerHTML = arr.map(b => {
       const d = new Date(b.date);
+<<<<<<< HEAD
       return `<div class="blocked-row">
         <div class="blocked-day">${d.getDate()}</div>
         <div class="blocked-date">${monthShort[d.getMonth()]} · ${d.toLocaleDateString('ru-RU', { weekday: 'short' })}</div>
@@ -2618,6 +3819,19 @@ body::before {
     }).join('');
     $$('[data-unblock]').forEach(b => b.addEventListener('click', async () => {
       if (!confirm('снять блокировку?')) return;
+=======
+      return `<div class="blocked-row" role="listitem">
+        <div class="blocked-day">${d.getDate()}</div>
+        <div class="blocked-date">${monthShort[d.getMonth()]} · ${d.toLocaleDateString('ru-RU', { weekday: 'short' })}</div>
+        <div class="blocked-time">${escapeHtml(b.time)}</div>
+        <div class="blocked-reason">${escapeHtml(b.reason || '—')}</div>
+        <button type="button" class="btn-icon danger has-tooltip" data-tip="снять" data-unblock="${b.id}" aria-label="снять блокировку">×</button>
+      </div>`;
+    }).join('');
+    $$('[data-unblock]').forEach(b => b.addEventListener('click', async () => {
+      const ok = await confirmModal({ title: 'снять блокировку', message: 'Слот снова станет доступным для записи.', okText: 'снять' });
+      if (!ok) return;
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       try { await api(`/api/admin/block-slot/${b.dataset.unblock}`, { method: 'DELETE' }); toast('✓ снято'); loadBlocked(); }
       catch (e) { toast(e.message, false); }
     }));
@@ -2625,6 +3839,7 @@ body::before {
   $('#addBlock')?.addEventListener('click', () => {
     const today = new Date().toISOString().slice(0, 10);
     openModal('заблокировать слот', `
+<<<<<<< HEAD
       <label class="field"><span class="field-label">дата</span>
         <input class="field-input" id="b-date" type="date" value="${today}" />
       </label>
@@ -2635,6 +3850,21 @@ body::before {
         <input class="field-input" id="b-reason" placeholder="отпуск / ремонт" />
       </label>
     `, `<button class="btn btn-ghost" data-modal-close>отмена</button><button class="btn btn-primary" id="b-save">заблокировать</button>`, '⊘');
+=======
+      <label class="field" for="b-date">
+        <span class="field-label">дата</span>
+        <input class="field-input" id="b-date" type="date" value="${today}" />
+      </label>
+      <label class="field" for="b-time">
+        <span class="field-label">время</span>
+        <input class="field-input" id="b-time" type="time" value="16:00" />
+      </label>
+      <label class="field" for="b-reason">
+        <span class="field-label">причина</span>
+        <input class="field-input" id="b-reason" placeholder="отпуск / ремонт" />
+      </label>
+    `, `<button type="button" class="btn btn-ghost" data-modal-close>отмена</button><button type="button" class="btn btn-primary" id="b-save">заблокировать</button>`, '⊘');
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
     $('#b-save')?.addEventListener('click', async () => {
       const data = { date: $('#b-date').value, time: $('#b-time').value, reason: $('#b-reason').value };
       if (!data.date || !data.time) { toast('выбери дату и время', false); return; }
@@ -2643,17 +3873,29 @@ body::before {
     });
   });
 
+<<<<<<< HEAD
+=======
+  // ============== CLIENTS ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   async function loadClients() {
     const arr = await api('/api/admin/clients');
     $('#clientsCount').textContent = arr.length + ' ' + plural(arr.length, 'клиент', 'клиента', 'клиентов');
     if (!arr.length) { $('#clientsList').innerHTML = emptyState('○', 'Нет клиентов', 'База пуста'); return; }
     $('#clientsList').innerHTML = arr.map(c => {
       const initial = (c.first_name || c.username || '?')[0].toUpperCase();
+<<<<<<< HEAD
       return `<div class="client-row">
         <div class="client-avatar">${initial}</div>
         <div>
           <div class="client-name">${escapeHtml(c.first_name || '—')} ${escapeHtml(c.last_name || '')}</div>
           <div class="client-handle">${c.username ? '@' + c.username : '—'}</div>
+=======
+      return `<div class="client-row" role="listitem">
+        <div class="client-avatar" aria-hidden="true">${escapeHtml(initial)}</div>
+        <div>
+          <div class="client-name">${escapeHtml(c.first_name || '—')} ${escapeHtml(c.last_name || '')}</div>
+          <div class="client-handle">${c.username ? '@' + escapeHtml(c.username) : '—'}</div>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
         </div>
         <div class="client-stat">
           <span class="client-stat-label">визитов</span>
@@ -2663,11 +3905,19 @@ body::before {
           <span class="client-stat-label">потрачено</span>
           <span class="client-stat-value green">${fmt(c.total_spent || 0)}₽</span>
         </div>
+<<<<<<< HEAD
         <a class="btn-icon has-tooltip" data-tip="написать" href="tg://user?id=${c.tg_id}">→</a>
+=======
+        <a class="btn-icon has-tooltip" data-tip="написать в Telegram" href="tg://user?id=${c.tg_id}" aria-label="написать клиенту">→</a>
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
       </div>`;
     }).join('');
   }
 
+<<<<<<< HEAD
+=======
+  // ============== SETTINGS ==============
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
   async function loadSettings() {
     const s = await api('/api/admin/settings');
     $('#setStart').value = s.default_start_time || '10:00';
@@ -2684,7 +3934,20 @@ body::before {
     catch (e) { toast(e.message, false); }
   });
 
+<<<<<<< HEAD
   if (tg) { try { tg.BackButton.show(); tg.BackButton.onClick(() => tg.close()); } catch {} }
+=======
+  // ============== TELEGRAM BACK BUTTON ==============
+  if (tg) {
+    try { tg.BackButton.show(); tg.BackButton.onClick(() => tg.close()); } catch {}
+  }
+
+  // ============== CLEANUP ON UNLOAD ==============
+  window.addEventListener('beforeunload', () => {
+    animFrames.forEach(f => cancelAnimationFrame(f));
+    animFrames.clear();
+  });
+>>>>>>> 6a57fe8 (feat: full audit + accessibility + responsive fixes)
 
   init();
 })();
