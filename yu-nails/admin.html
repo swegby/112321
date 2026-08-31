@@ -3,73 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<<<<<<< HEAD
-<meta name="theme-color" content="#fde6df" />
-<meta name="color-scheme" content="light" />
-<title>yu.nails — админ-панель</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script>
-  // УКАЖИ СВОЙ API URL для реальной работы:
-  // window.YUNAILS_API = 'https://yu-nails-api.onrender.com';
-  // Без этого работает DEMO-режим (моковые данные, изменения в localStorage)
-  window.YUNAILS_DEMO = true;
-</script>
-<link rel="stylesheet" href="admin.css" />
-</head>
-<body>
-
-<div class="admin-app" id="adminApp">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <span class="brand-mark">◐</span>
-      <span class="brand-text">yu.nails</span>
-    </div>
-    <div class="sidebar-tag">админ-панель</div>
-
-    <nav class="sidebar-nav">
-      <button class="nav-item active" data-tab="dashboard">
-        <span class="ni-ico">📊</span>
-        <span>дашборд</span>
-      </button>
-      <button class="nav-item" data-tab="bookings">
-        <span class="ni-ico">📅</span>
-        <span>записи</span>
-      </button>
-      <button class="nav-item" data-tab="schedule">
-        <span class="ni-ico">🕐</span>
-        <span>расписание</span>
-      </button>
-      <button class="nav-item" data-tab="services">
-        <span class="ni-ico">💅</span>
-        <span>услуги</span>
-      </button>
-      <button class="nav-item" data-tab="blocked">
-        <span class="ni-ico">🚫</span>
-        <span>блокировки</span>
-      </button>
-      <button class="nav-item" data-tab="clients">
-        <span class="ni-ico">👥</span>
-        <span>клиенты</span>
-      </button>
-      <button class="nav-item" data-tab="settings">
-        <span class="ni-ico">⚙️</span>
-        <span>настройки</span>
-      </button>
-    </nav>
-
-    <div class="sidebar-foot">
-      <div class="me" id="me">
-        <div class="me-avatar" id="meAvatar">?</div>
-        <div>
-          <div class="me-name" id="meName">загрузка...</div>
-          <div class="me-tag">администратор</div>
-        </div>
-=======
 <meta name="theme-color" content="#0a0a0c" />
 <meta name="color-scheme" content="dark" />
 <title>yu.nails — admin</title>
@@ -79,43 +12,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-  // window.YUNAILS_API = 'https://your-api.onrender.com';
-  window.YUNAILS_DEMO = true;
+// window.YUNAILS_API = 'https://your-api.onrender.com';
+window.YUNAILS_DEMO = true;
 </script>
 <style>
-/* ============================================================
-   yu.nails — Admin · Dark Editorial
-   Inspired by Linear / Vercel / Arc
-   ============================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
 :root {
-  /* Surfaces */
   --bg: #0a0a0c;
   --bg-elevated: #0e0e10;
   --surface: #131316;
   --surface-hover: #18181b;
   --surface-active: #1d1d21;
-
-  /* Borders */
   --border: rgba(255, 255, 255, 0.06);
   --border-strong: rgba(255, 255, 255, 0.1);
   --border-active: rgba(255, 255, 255, 0.16);
-
-  /* Text */
   --ink: #fafafa;
   --ink-2: #a1a1aa;
   --ink-3: #71717a;
   --ink-4: #52525b;
-
-  /* Accent — тёплый янтарь (Cursor-style) */
   --accent: #ff7849;
   --accent-hover: #ff8a5e;
   --accent-soft: rgba(255, 120, 73, 0.12);
   --accent-soft-strong: rgba(255, 120, 73, 0.2);
-
-  /* Status */
   --success: #4ade80;
   --success-soft: rgba(74, 222, 128, 0.12);
   --warning: #fbbf24;
@@ -124,20 +43,14 @@
   --danger-soft: rgba(248, 113, 113, 0.12);
   --info: #60a5fa;
   --info-soft: rgba(96, 165, 250, 0.12);
-
-  /* Type */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
-
-  /* Radii */
   --r-xs: 4px;
   --r-sm: 6px;
   --r-md: 8px;
   --r-lg: 12px;
   --r-xl: 16px;
-
-  /* Motion */
   --t: 120ms cubic-bezier(0.4, 0, 0.2, 1);
   --t-slow: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -166,14 +79,9 @@ a { color: var(--accent); text-decoration: none; }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.14); }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-.app {
-  display: grid;
-  grid-template-columns: 232px 1fr;
-  min-height: 100vh;
-}
+/* LAYOUT */
+.app { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+
 .sidebar {
   border-right: 1px solid var(--border);
   padding: 16px 12px;
@@ -187,12 +95,7 @@ a { color: var(--accent); text-decoration: none; }
   overflow-y: auto;
   background: var(--bg);
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 4px 8px 20px;
-}
+.brand { display: flex; align-items: center; gap: 9px; padding: 4px 8px 20px; }
 .brand-mark {
   width: 22px; height: 22px;
   border-radius: var(--r-sm);
@@ -205,12 +108,7 @@ a { color: var(--accent); text-decoration: none; }
   font-style: italic;
   letter-spacing: -0.04em;
 }
-.brand-text {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
+.brand-text { font-size: 14px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
 .brand-text em { color: var(--ink-3); font-style: normal; font-weight: 400; }
 
 .nav-group { margin-top: 12px; }
@@ -237,10 +135,7 @@ a { color: var(--accent); text-decoration: none; }
   position: relative;
 }
 .nav-item:hover { background: var(--surface); color: var(--ink); }
-.nav-item.active {
-  background: var(--surface);
-  color: var(--ink);
-}
+.nav-item.active { background: var(--surface); color: var(--ink); }
 .nav-item.active::before {
   content: '';
   position: absolute;
@@ -252,13 +147,7 @@ a { color: var(--accent); text-decoration: none; }
   background: var(--accent);
   border-radius: 0 2px 2px 0;
 }
-.nav-item .ni-ico {
-  font-size: 14px;
-  width: 16px;
-  text-align: center;
-  flex-shrink: 0;
-  opacity: 0.7;
-}
+.nav-item .ni-ico { font-size: 14px; width: 16px; text-align: center; flex-shrink: 0; opacity: 0.7; }
 .nav-item.active .ni-ico { opacity: 1; }
 .nav-item .ni-label { flex: 1; }
 .nav-item .ni-badge {
@@ -321,15 +210,8 @@ a { color: var(--accent); text-decoration: none; }
   box-shadow: 0 0 6px var(--success);
 }
 
-/* ============================================================
-   MAIN
-   ============================================================ */
-.main {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  position: relative;
-}
+/* MAIN */
+.main { display: flex; flex-direction: column; min-width: 0; position: relative; }
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -343,10 +225,7 @@ a { color: var(--accent); text-decoration: none; }
   top: 0;
   z-index: 50;
 }
-.topbar-left {
-  display: flex; align-items: center; gap: 10px;
-  min-width: 0; flex: 1;
-}
+.topbar-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
 .topbar-titles { min-width: 0; }
 .page-title {
   font-size: 16px;
@@ -389,9 +268,7 @@ a { color: var(--accent); text-decoration: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* BUTTONS */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 6px;
@@ -407,30 +284,15 @@ a { color: var(--accent); text-decoration: none; }
   user-select: none;
   -webkit-user-select: none;
 }
-.btn-primary {
-  background: var(--accent);
-  color: #0a0a0c;
-  font-weight: 600;
-}
+.btn-primary { background: var(--accent); color: #0a0a0c; font-weight: 600; }
 .btn-primary:hover { background: var(--accent-hover); }
 .btn-primary:active { transform: scale(0.98); }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-
-.btn-secondary {
-  background: var(--surface);
-  color: var(--ink);
-  border-color: var(--border);
-}
+.btn-secondary { background: var(--surface); color: var(--ink); border-color: var(--border); }
 .btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-strong); }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--ink-2);
-}
+.btn-ghost { background: transparent; color: var(--ink-2); }
 .btn-ghost:hover { background: var(--surface); color: var(--ink); }
-
 .btn-danger { background: var(--danger); color: #0a0a0c; }
-
 .btn-sm { padding: 4px 9px; font-size: 11.5px; }
 
 .btn-icon {
@@ -449,9 +311,7 @@ a { color: var(--accent); text-decoration: none; }
 .btn-icon.success:hover { background: var(--success-soft); color: var(--success); }
 .btn-icon.danger:hover { background: var(--danger-soft); color: var(--danger); }
 
-/* ============================================================
-   STATS — Linear-style with huge numbers
-   ============================================================ */
+/* STATS */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -469,12 +329,7 @@ a { color: var(--accent); text-decoration: none; }
   transition: background var(--t);
 }
 .stat:hover { background: var(--bg-elevated); }
-.stat-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
+.stat-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .stat-label {
   font-size: 11px;
   color: var(--ink-3);
@@ -483,10 +338,7 @@ a { color: var(--accent); text-decoration: none; }
   letter-spacing: 0.06em;
   font-family: var(--font-mono);
 }
-.stat-icon {
-  font-size: 12px;
-  opacity: 0.5;
-}
+.stat-icon { font-size: 12px; opacity: 0.5; }
 .stat-value {
   font-size: 30px;
   font-weight: 600;
@@ -496,12 +348,7 @@ a { color: var(--accent); text-decoration: none; }
   font-variant-numeric: tabular-nums;
   margin-bottom: 6px;
 }
-.stat-value .currency {
-  font-size: 18px;
-  color: var(--ink-3);
-  font-weight: 500;
-  margin-left: 2px;
-}
+.stat-value .currency { font-size: 18px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
 .stat-value.accent { color: var(--accent); }
 .stat-value.accent .currency { color: var(--accent); opacity: 0.6; }
 .stat-sub {
@@ -510,20 +357,12 @@ a { color: var(--accent); text-decoration: none; }
   display: flex; align-items: center; gap: 6px;
   font-family: var(--font-mono);
 }
-.stat-sub .delta { color: var(--success); }
-.stat-sub .delta.down { color: var(--danger); }
-.stat-spark {
-  height: 28px;
-  margin-top: 8px;
-  margin-bottom: -2px;
-}
+.stat-spark { height: 28px; margin-top: 8px; margin-bottom: -2px; }
 
 @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
 
-/* ============================================================
-   CARDS — minimalist
-   ============================================================ */
+/* CARDS */
 .card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -553,11 +392,7 @@ a { color: var(--accent); text-decoration: none; }
   color: var(--ink-3);
   font-weight: 400;
 }
-.card-head p {
-  font-size: 11.5px;
-  color: var(--ink-3);
-  font-family: var(--font-mono);
-}
+.card-head p { font-size: 11.5px; color: var(--ink-3); font-family: var(--font-mono); }
 .card-body { padding: 4px 0; }
 .card-body.padded { padding: 20px; }
 
@@ -569,33 +404,15 @@ a { color: var(--accent); text-decoration: none; }
   margin-top: 28px;
 }
 .section-head:first-child { margin-top: 0; }
-.section-head h2 {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-.section-head .sub {
-  font-size: 11.5px;
-  color: var(--ink-3);
-  font-family: var(--font-mono);
-}
+.section-head h2 { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.section-head .sub { font-size: 11.5px; color: var(--ink-3); font-family: var(--font-mono); }
 .section-head a { font-size: 11.5px; color: var(--ink-3); }
 .section-head a:hover { color: var(--ink); }
 
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
-}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
 @media (max-width: 1100px) { .two-col { grid-template-columns: 1fr; } }
 
-.muted { color: var(--ink-3); }
-
-/* ============================================================
-   FILTERS
-   ============================================================ */
+/* FILTERS */
 .filters {
   display: inline-flex;
   background: var(--bg-elevated);
@@ -616,12 +433,11 @@ a { color: var(--accent); text-decoration: none; }
   display: inline-flex; align-items: center; gap: 5px;
   border-radius: 4px;
   font-family: var(--font-mono);
+  background: transparent;
+  border: none;
 }
 .chip:hover { color: var(--ink); }
-.chip.active {
-  background: var(--surface-active);
-  color: var(--ink);
-}
+.chip.active { background: var(--surface-active); color: var(--ink); }
 .chip-count {
   font-size: 10px;
   background: rgba(255,255,255,0.06);
@@ -632,9 +448,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 .chip.active .chip-count { background: var(--border-active); color: var(--ink); }
 
-/* ============================================================
-   BOOKING ROWS
-   ============================================================ */
+/* BOOKING ROWS */
 .booking-list { display: flex; flex-direction: column; }
 .booking-row {
   display: grid;
@@ -647,8 +461,6 @@ a { color: var(--accent); text-decoration: none; }
 }
 .booking-row:last-child { border-bottom: none; }
 .booking-row:hover { background: var(--bg); }
-.booking-row .checkbox { opacity: 0; transition: opacity var(--t); }
-.booking-row:hover .checkbox { opacity: 1; }
 
 .booking-time {
   text-align: center;
@@ -722,7 +534,6 @@ a { color: var(--accent); text-decoration: none; }
   color: var(--ink);
 }
 .booking-price .cur { color: var(--ink-3); margin-left: 1px; }
-
 .booking-actions { display: flex; gap: 2px; }
 
 .empty {
@@ -734,9 +545,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 .empty-icon { font-size: 24px; opacity: 0.3; margin-bottom: 8px; }
 
-/* ============================================================
-   POPULAR LIST
-   ============================================================ */
+/* POPULAR */
 .popular-list { display: flex; flex-direction: column; }
 .popular-row {
   display: grid;
@@ -785,9 +594,7 @@ a { color: var(--accent); text-decoration: none; }
   font-weight: 500;
 }
 
-/* ============================================================
-   SCHEDULE
-   ============================================================ */
+/* SCHEDULE */
 .schedule-list { display: flex; flex-direction: column; }
 .schedule-day {
   display: grid;
@@ -808,15 +615,10 @@ a { color: var(--accent); text-decoration: none; }
   display: flex; align-items: center; gap: 8px;
   text-transform: lowercase;
 }
-.schedule-day-name .weekday-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--success);
-}
+.schedule-day-name .weekday-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
 .schedule-day.off .weekday-dot { background: var(--ink-4); }
 
-.time-input,
-.input-field {
+.time-input, .input-field {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
@@ -839,7 +641,6 @@ a { color: var(--accent); text-decoration: none; }
 .time-input:disabled { opacity: 0.4; cursor: not-allowed; }
 .input-field.numeric { text-align: right; font-family: var(--font-mono); }
 
-/* Switch — минималистичный, Linear-style */
 .switch {
   position: relative;
   width: 28px; height: 16px;
@@ -865,9 +666,7 @@ a { color: var(--accent); text-decoration: none; }
 .switch.on::after { transform: translateX(12px); background: #0a0a0c; }
 .switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* ============================================================
-   SERVICES
-   ============================================================ */
+/* SERVICES */
 .services-list { display: flex; flex-direction: column; }
 .service-row {
   display: grid;
@@ -880,7 +679,6 @@ a { color: var(--accent); text-decoration: none; }
 }
 .service-row:hover { background: var(--bg); }
 .service-row:last-child { border-bottom: none; }
-
 .service-id {
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -900,9 +698,7 @@ a { color: var(--accent); text-decoration: none; }
   .service-row > [data-f="name"] { grid-column: 1 / -1; }
 }
 
-/* ============================================================
-   BLOCKED
-   ============================================================ */
+/* BLOCKED */
 .blocked-list { display: flex; flex-direction: column; }
 .blocked-row {
   display: grid;
@@ -929,12 +725,7 @@ a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-mono);
   text-transform: lowercase;
 }
-.blocked-time {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink);
-}
+.blocked-time { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink); }
 .blocked-reason {
   font-size: 12px;
   color: var(--ink-2);
@@ -943,9 +734,7 @@ a { color: var(--accent); text-decoration: none; }
   white-space: nowrap;
 }
 
-/* ============================================================
-   CLIENTS
-   ============================================================ */
+/* CLIENTS */
 .clients-list { display: flex; flex-direction: column; }
 .client-row {
   display: grid;
@@ -991,15 +780,8 @@ a { color: var(--accent); text-decoration: none; }
 }
 .client-stat-value.green { color: var(--success); }
 
-/* ============================================================
-   FORM
-   ============================================================ */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  padding: 20px;
-}
+/* FORM */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px; }
 .field { display: flex; flex-direction: column; gap: 5px; }
 .field-label {
   font-size: 11px;
@@ -1010,9 +792,7 @@ a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-mono);
 }
 .field-hint { font-size: 11px; color: var(--ink-3); margin-top: -2px; }
-.field-input,
-.field-textarea,
-.field-select {
+.field-input, .field-textarea, .field-select {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
@@ -1037,12 +817,9 @@ a { color: var(--accent); text-decoration: none; }
   background-position: right 10px center;
   padding-right: 28px;
 }
-
 .form-actions { display: flex; gap: 6px; margin-top: 16px; justify-content: flex-end; padding: 0 20px 20px; }
 
-/* ============================================================
-   MODAL
-   ============================================================ */
+/* MODAL */
 .modal {
   position: fixed; inset: 0;
   z-index: 100;
@@ -1090,26 +867,15 @@ a { color: var(--accent); text-decoration: none; }
   line-height: 1;
 }
 .modal-close:hover { background: var(--surface); color: var(--ink); }
-.modal-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  padding-right: 32px;
-  letter-spacing: -0.01em;
-}
+.modal-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; padding-right: 32px; letter-spacing: -0.01em; }
 .modal-body { display: flex; flex-direction: column; gap: 12px; }
 .modal-foot {
-  display: flex;
-  gap: 6px;
-  justify-content: flex-end;
-  margin-top: 18px;
-  padding-top: 16px;
+  display: flex; gap: 6px; justify-content: flex-end;
+  margin-top: 18px; padding-top: 16px;
   border-top: 1px solid var(--border);
 }
 
-/* ============================================================
-   TOAST
-   ============================================================ */
+/* TOAST */
 .toast {
   position: fixed;
   bottom: 24px; left: 50%;
@@ -1128,18 +894,11 @@ a { color: var(--accent); text-decoration: none; }
   white-space: nowrap;
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
-.toast::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--success);
-}
+.toast::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
 .toast.error { background: var(--danger); color: #0a0a0c; }
 .toast.error::before { background: #0a0a0c; }
 
-/* ============================================================
-   DEMO BANNER
-   ============================================================ */
+/* DEMO BANNER */
 .demo-banner {
   position: fixed;
   bottom: 16px; right: 16px;
@@ -1157,16 +916,9 @@ a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-mono);
 }
 .demo-banner:hover { color: var(--ink); border-color: var(--border-strong); }
-.demo-banner::before {
-  content: '';
-  width: 5px; height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-}
+.demo-banner::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
 
-/* ============================================================
-   MOBILE
-   ============================================================ */
+/* MOBILE */
 .mobile-menu-btn {
   display: none;
   width: 28px; height: 28px;
@@ -1207,11 +959,9 @@ a { color: var(--accent); text-decoration: none; }
   .sidebar.open { transform: translateX(0); }
   .sidebar-backdrop { display: block; }
   .mobile-menu-btn { display: flex; }
-
   .topbar { padding: 12px 16px; }
   .page-title { font-size: 15px; }
   .page-sub { font-size: 11px; }
-
   .content { padding: 18px 16px 80px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat { padding: 14px 16px 12px; }
@@ -1242,24 +992,7 @@ a { color: var(--accent); text-decoration: none; }
   .popular-bar-wrap { display: none; }
 }
 
-/* ============================================================
-   ACCESS DENIED
-   ============================================================ */
-.access-denied {
-  position: fixed; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 12px;
-  text-align: center;
-  padding: 20px;
-  z-index: 10;
-}
-.access-denied-icon { font-size: 48px; opacity: 0.5; }
-.access-denied h2 { font-size: 20px; color: var(--ink); font-weight: 600; }
-.access-denied p { color: var(--ink-3); max-width: 360px; font-size: 13px; }
-
-/* ============================================================
-   SKELETON
-   ============================================================ */
+/* SKELETON */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -1271,25 +1004,11 @@ a { color: var(--accent); text-decoration: none; }
   border-radius: var(--r-xs);
   color: transparent !important;
 }
-
-/* Inline keyboard hint */
-.kbd {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  padding: 1px 5px;
-  border: 1px solid var(--border);
-  border-bottom-width: 2px;
-  border-radius: 3px;
-  color: var(--ink-2);
-  background: var(--bg-elevated);
-}
 </style>
 </head>
 <body>
 
 <div class="app" id="app">
-  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <span class="brand-mark">y</span>
@@ -1338,26 +1057,13 @@ a { color: var(--accent); text-decoration: none; }
       <div class="me-info">
         <div class="me-name" id="meName">загрузка</div>
         <div class="me-tag">админ</div>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
       </div>
     </div>
   </aside>
 
-  <!-- Main -->
   <main class="main">
     <header class="topbar">
       <div class="topbar-left">
-<<<<<<< HEAD
-        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню">☰</button>
-        <div class="topbar-titles">
-          <h1 class="page-title" id="pageTitle">дашборд</h1>
-          <p class="page-sub" id="pageSub">обзор студии</p>
-        </div>
-      </div>
-      <div class="topbar-actions">
-        <button class="btn btn-secondary btn-sm" id="refreshBtn" type="button">обновить</button>
-        <button class="btn btn-ghost btn-sm" id="closeBtn" type="button">закрыть</button>
-=======
         <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="меню">☰</button>
         <div class="topbar-titles">
           <h1 class="page-title" id="pageTitle">дашборд</h1>
@@ -1367,51 +1073,15 @@ a { color: var(--accent); text-decoration: none; }
       <div class="topbar-actions">
         <button class="btn btn-ghost btn-sm" id="refreshBtn" type="button">↻ обновить</button>
         <button class="btn btn-secondary btn-sm" id="closeBtn" type="button">закрыть</button>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
       </div>
     </header>
 
     <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
     <div class="content">
-      <!-- DASHBOARD -->
       <div class="tab-pane active" data-pane="dashboard">
         <div class="stats-grid" id="statsGrid"></div>
 
-<<<<<<< HEAD
-        <div class="two-col">
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <h3>📅 сегодня</h3>
-                <p id="todayDate"></p>
-              </div>
-            </div>
-            <div class="booking-list" id="todayList">
-              <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <h3>📅 завтра</h3>
-                <p id="tomorrowDate"></p>
-              </div>
-            </div>
-            <div class="booking-list" id="tomorrowList">
-              <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <div>
-              <h3>🏆 популярные услуги</h3>
-              <p>что чаще всего заказывают</p>
-            </div>
-          </div>
-=======
         <div class="section-head">
           <h2>сегодня и завтра</h2>
           <a href="#" data-go="bookings">все записи →</a>
@@ -1438,32 +1108,11 @@ a { color: var(--accent); text-decoration: none; }
           <span class="sub">за всё время</span>
         </div>
         <div class="card">
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
           <div class="popular-list" id="popularList"></div>
         </div>
       </div>
 
-      <!-- BOOKINGS -->
       <div class="tab-pane" data-pane="bookings">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <div>
-              <h3>📅 все записи</h3>
-              <p>управление бронированиями клиентов</p>
-            </div>
-          </div>
-          <div class="filters" style="padding: 16px 24px 0;">
-            <button class="chip active" data-filter="all" type="button">все</button>
-            <button class="chip" data-filter="pending" type="button">⏳ новые</button>
-            <button class="chip" data-filter="confirmed" type="button">✅ подтверждённые</button>
-            <button class="chip" data-filter="completed" type="button">✓ выполненные</button>
-            <button class="chip" data-filter="cancelled" type="button">✕ отменённые</button>
-          </div>
-          <div class="bookings-list" id="bookingsList">
-            <div class="empty"><div class="empty-icon">📅</div>загрузка...</div>
-          </div>
-=======
         <div class="section-head">
           <h2>все записи</h2>
           <span class="sub" id="bookingsCount">—</span>
@@ -1479,22 +1128,10 @@ a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
           <div class="booking-list" id="bookingsList"></div>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
         </div>
       </div>
 
-      <!-- SCHEDULE -->
       <div class="tab-pane" data-pane="schedule">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <h3>расписание работы</h3>
-            <p class="muted">установи часы для каждого дня недели</p>
-          </div>
-          <div class="card-body">
-            <div class="schedule-list" id="scheduleList"></div>
-            <button class="btn-primary mt-24" id="saveSchedule" type="button">сохранить расписание</button>
-=======
         <div class="section-head">
           <h2>расписание работы</h2>
           <span class="sub">по дням недели</span>
@@ -1504,105 +1141,41 @@ a { color: var(--accent); text-decoration: none; }
           <div class="form-actions" style="border-top: 1px solid var(--border); padding-top: 14px; margin-top: 0;">
             <button class="btn btn-ghost btn-sm" id="resetSchedule" type="button">сбросить</button>
             <button class="btn btn-primary" id="saveSchedule" type="button">сохранить</button>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
           </div>
         </div>
       </div>
 
-      <!-- SERVICES -->
       <div class="tab-pane" data-pane="services">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <h3>услуги и цены</h3>
-            <button class="btn-primary small" id="addService" type="button">+ добавить</button>
-          </div>
-          <div class="card-body">
-            <div class="services-list" id="servicesList"></div>
-          </div>
-=======
         <div class="section-head">
           <h2>услуги и цены</h2>
           <button class="btn btn-primary btn-sm" id="addService" type="button">+ добавить</button>
         </div>
         <div class="card">
           <div class="services-list" id="servicesList"></div>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
         </div>
       </div>
 
-      <!-- BLOCKED -->
       <div class="tab-pane" data-pane="blocked">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <h3>заблокированные слоты</h3>
-            <button class="btn-primary small" id="addBlock" type="button">+ заблокировать</button>
-          </div>
-          <div class="card-body">
-            <p class="muted mb-16">слоты, недоступные для записи (отпуск, выходной, ремонт)</p>
-            <div class="blocked-list" id="blockedList"></div>
-          </div>
-=======
         <div class="section-head">
           <h2>заблокированные слоты</h2>
           <button class="btn btn-primary btn-sm" id="addBlock" type="button">+ заблокировать</button>
         </div>
         <div class="card">
           <div class="blocked-list" id="blockedList"></div>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
         </div>
       </div>
 
-      <!-- CLIENTS -->
       <div class="tab-pane" data-pane="clients">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <h3>клиенты</h3>
-          </div>
-          <div class="card-body">
-            <div class="clients-list" id="clientsList"></div>
-          </div>
-=======
         <div class="section-head">
           <h2>клиенты</h2>
           <span class="sub" id="clientsCount">—</span>
         </div>
         <div class="card">
           <div class="clients-list" id="clientsList"></div>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
         </div>
       </div>
 
-      <!-- SETTINGS -->
       <div class="tab-pane" data-pane="settings">
-<<<<<<< HEAD
-        <div class="card">
-          <div class="card-head">
-            <h3>настройки</h3>
-          </div>
-          <div class="card-body">
-            <div class="form-grid">
-              <label class="field">
-                <span class="field-label">рабочие часы по умолчанию (с)</span>
-                <input type="time" id="setStart" />
-              </label>
-              <label class="field">
-                <span class="field-label">рабочие часы по умолчанию (до)</span>
-                <input type="time" id="setEnd" />
-              </label>
-              <label class="field">
-                <span class="field-label">длительность слота (мин)</span>
-                <input type="number" id="setDuration" min="15" step="15" />
-              </label>
-              <label class="field">
-                <span class="field-label">нельзя записаться менее чем за (часов)</span>
-                <input type="number" id="setLead" min="0" step="1" />
-              </label>
-            </div>
-            <button class="btn-primary mt-24" id="saveSettings" type="button">сохранить настройки</button>
-=======
         <div class="section-head">
           <h2>настройки системы</h2>
         </div>
@@ -1631,7 +1204,6 @@ a { color: var(--accent); text-decoration: none; }
           </div>
           <div class="form-actions">
             <button class="btn btn-primary" id="saveSettings" type="button">сохранить</button>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
           </div>
         </div>
       </div>
@@ -1639,13 +1211,7 @@ a { color: var(--accent); text-decoration: none; }
   </main>
 </div>
 
-<!-- Modal -->
-<<<<<<< HEAD
-<div class="modal" id="modal" hidden>
-  <div class="modal-backdrop" data-modal-close></div>
-=======
 <div class="modal" id="modal" hidden aria-hidden="true">
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
   <div class="modal-content">
     <button class="modal-close" data-modal-close type="button" aria-label="Закрыть">×</button>
     <h3 class="modal-title" id="modalTitle">...</h3>
@@ -1654,12 +1220,8 @@ a { color: var(--accent); text-decoration: none; }
   </div>
 </div>
 
-<!-- Toast -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<<<<<<< HEAD
-<script src="admin.js" defer></script>
-=======
 <script>
 (() => {
   'use strict';
@@ -1668,7 +1230,6 @@ a { color: var(--accent); text-decoration: none; }
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const isDemo = !window.YUNAILS_API;
 
-  // ============== TELEGRAM ==============
   const tg = window.Telegram?.WebApp;
   let myTgId = 0, myName = 'админ', myPhoto = null;
   if (tg) {
@@ -1684,7 +1245,6 @@ a { color: var(--accent); text-decoration: none; }
   }
   if (isDemo) { myTgId = 123456789; myName = 'demo admin'; }
 
-  // ============== DEMO STORAGE ==============
   const STORAGE_KEY = 'yunails_admin_v3';
   function initDemoData() {
     const today = new Date();
@@ -1746,7 +1306,6 @@ a { color: var(--accent); text-decoration: none; }
   const db = isDemo ? loadDemoData() : null;
   if (isDemo) saveDemoData(db);
 
-  // ============== API ==============
   function delay(ms = 120) { return new Promise(r => setTimeout(r, ms)); }
   function parseBody(o) { return o?.body ? JSON.parse(o.body) : null; }
   async function api(path, options = {}) {
@@ -1775,7 +1334,6 @@ a { color: var(--accent); text-decoration: none; }
       const popular = {};
       data.bookings.forEach(b => { if (b.status !== 'cancelled') popular[b.service] = (popular[b.service] || 0) + 1; });
       const pop = Object.entries(popular).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([service, count]) => ({ service, count }));
-      // sparkline data — выручка за 7 дней
       const spark = [];
       for (let i = 6; i >= 0; i--) {
         const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
@@ -1859,7 +1417,6 @@ a { color: var(--accent); text-decoration: none; }
     throw new Error('demo: route not found ' + path);
   }
 
-  // ============== HELPERS ==============
   function escapeHtml(s) {
     if (s == null) return '';
     return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1870,8 +1427,7 @@ a { color: var(--accent); text-decoration: none; }
   const statusText = s => ({ pending: 'новая', confirmed: 'подтв.', completed: 'выполнена', cancelled: 'отменена' }[s] || s);
   const monthShort = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 
-  // sparkline SVG
-  function sparkline(values, color = 'currentColor') {
+  function sparkline(values) {
     if (!values || !values.length) return '';
     const max = Math.max(...values, 1);
     const w = 100, h = 28;
@@ -1884,7 +1440,6 @@ a { color: var(--accent); text-decoration: none; }
     </svg>`;
   }
 
-  // ============== TOAST ==============
   const toastEl = $('#toast');
   let toastTimer;
   function toast(msg, ok = true) {
@@ -1896,7 +1451,6 @@ a { color: var(--accent); text-decoration: none; }
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
   }
 
-  // ============== MODAL ==============
   const modal = $('#modal');
   function openModal(title, bodyHtml, footHtml = '') {
     $('#modalTitle').textContent = title;
@@ -1918,7 +1472,6 @@ a { color: var(--accent); text-decoration: none; }
   modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal(); });
 
-  // ============== INIT ==============
   async function init() {
     if (isDemo) showDemoBanner();
     if (myPhoto) { $('#meAvatar').style.backgroundImage = `url(${myPhoto})`; $('#meAvatar').textContent = ''; }
@@ -1952,13 +1505,11 @@ a { color: var(--accent); text-decoration: none; }
     $('#refreshBtn').addEventListener('click', () => loadCurrentTab());
     $('#closeBtn').addEventListener('click', () => tg ? tg.close() : window.close());
 
-    // [data-go] для ссылок внутри контента
     document.addEventListener('click', e => {
       const a = e.target.closest('[data-go]');
       if (a) { e.preventDefault(); switchTab(a.dataset.go); }
     });
 
-    // chip filters
     $$('#bookingsFilters .chip').forEach(c => c.addEventListener('click', () => {
       $$('#bookingsFilters .chip').forEach(x => x.classList.remove('active'));
       c.classList.add('active');
@@ -1966,7 +1517,6 @@ a { color: var(--accent); text-decoration: none; }
       loadBookings();
     }));
 
-    // bookings delegated
     document.addEventListener('click', e => {
       const conf = e.target.closest('[data-quick-confirm]');
       if (conf) changeStatus(conf.dataset.quickConfirm, 'confirmed');
@@ -1999,7 +1549,6 @@ a { color: var(--accent); text-decoration: none; }
     } catch {}
   }
 
-  // ============== TAB SWITCH ==============
   let currentTab = 'dashboard';
   let currentFilter = 'all';
   const TITLES = {
@@ -2027,7 +1576,6 @@ a { color: var(--accent); text-decoration: none; }
     } catch (e) { console.error(e); toast(e.message, false); }
   }
 
-  // ============== DASHBOARD ==============
   async function loadDashboard() {
     const s = await api('/api/admin/stats');
     const stats = [
@@ -2102,14 +1650,12 @@ a { color: var(--accent); text-decoration: none; }
     }).join('');
   }
 
-  // ============== BOOKINGS ==============
   async function loadBookings() {
     const status = currentFilter === 'all' ? '' : `&status=${currentFilter}`;
     const [arr, all] = await Promise.all([
       api('/api/admin/bookings?limit=200' + status),
       api('/api/admin/bookings?limit=500'),
     ]);
-    // счётчики в чипах
     const counts = { all: all.length, pending: 0, confirmed: 0, completed: 0, cancelled: 0 };
     all.forEach(b => { counts[b.status] = (counts[b.status] || 0) + 1; });
     $$('#bookingsFilters [data-count]').forEach(el => { el.textContent = counts[el.dataset.count] || 0; });
@@ -2156,7 +1702,6 @@ a { color: var(--accent); text-decoration: none; }
     } catch (e) { toast(e.message, false); }
   }
 
-  // ============== SCHEDULE ==============
   const DAY_NAMES = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
   async function loadSchedule() {
     const arr = await api('/api/admin/schedule');
@@ -2203,7 +1748,6 @@ a { color: var(--accent); text-decoration: none; }
   });
   $('#resetSchedule')?.addEventListener('click', () => loadSchedule());
 
-  // ============== SERVICES ==============
   let servicesCache = [];
   async function loadServices() {
     servicesCache = await api('/api/admin/services');
@@ -2275,7 +1819,6 @@ a { color: var(--accent); text-decoration: none; }
     });
   });
 
-  // ============== BLOCKED ==============
   async function loadBlocked() {
     const arr = await api('/api/admin/blocked-slots');
     if (!arr.length) { $('#blockedList').innerHTML = '<div class="empty"><div class="empty-icon">—</div>нет блокировок</div>'; return; }
@@ -2316,7 +1859,6 @@ a { color: var(--accent); text-decoration: none; }
     });
   });
 
-  // ============== CLIENTS ==============
   async function loadClients() {
     const arr = await api('/api/admin/clients');
     $('#clientsCount').textContent = arr.length + ' ' + (arr.length === 1 ? 'клиент' : (arr.length < 5 ? 'клиента' : 'клиентов'));
@@ -2342,7 +1884,6 @@ a { color: var(--accent); text-decoration: none; }
     }).join('');
   }
 
-  // ============== SETTINGS ==============
   async function loadSettings() {
     const s = await api('/api/admin/settings');
     $('#setStart').value = s.default_start_time || '16:00';
@@ -2364,6 +1905,5 @@ a { color: var(--accent); text-decoration: none; }
   init();
 })();
 </script>
->>>>>>> fab1c53 (redesign v2: dark editorial · single-file admin)
 </body>
 </html>
